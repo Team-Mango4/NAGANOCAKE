@@ -14,9 +14,9 @@ class Public::SessionsController < Devise::SessionsController
     ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
     if @customer.valid_password?(params[:customer][:password])
       ## 【処理内容3】
-      redirect_to "/customers/sign_up"
-    else
-      render "public/registrations/new"
+      if @customer.is_deleted
+        redirect_to "/customers/sign_up"
+      end
     end
   end
 end
