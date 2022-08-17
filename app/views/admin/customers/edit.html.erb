@@ -1,0 +1,42 @@
+<h1><%= @customer.first_name %><%= @customer.last_name %>の会員情報編集</h1>
+  <table class="table table-bordered">
+    <tbody>
+        <tr>
+          <%= form_with model: @customer, url: "/admin/customers/#{@customer.id}", method: :patch  do |f| %>
+          <div class="form-group">
+          <td>会員ID</td>
+          <td><%= f.text_field :id, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td><%= f.text_field :first_name, class: "form-control" %><%= f.text_field :last_name, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td>フリガナ</td>
+          <td><%= f.text_field :first_name_kana, class: "form-control" %><%= f.text_field :last_name_kana, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td>郵便番号</td>
+          <td><%= f.text_field :post_code, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td><%= f.text_field :address, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= f.text_field :telephone_number, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= f.text_field :email, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td>会員ステータス</td>
+          <td><%= f.text_field :is_deleted, class: "form-control" %></td>
+        </tr>
+         <button type="submit" class="btn btn-secondary">変更を保存</button>
+        <% end %>
+    </tbody>
+  </table>
+ 
