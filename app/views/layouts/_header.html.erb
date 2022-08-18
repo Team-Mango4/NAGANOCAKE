@@ -9,47 +9,61 @@
         <ul class="navbar-nav ml-auto">
         
           <li>
-            <%= link_to class: 'nav-link text-light' do %>
-              <i></i> Home
+            <%= link_to class: 'nav-link text-dirk' do %>
+              <i></i> Home/
             <% end %>
           </li>
           <li>
-            <%= link_to class: 'nav-link text-light' do %>
-              <i></i> Users
+            <%= link_to class: 'nav-link text-dirk' do %>
+              <i></i> Users/
             <% end %>
           </li>
           <li>
-            <%= link_to class: 'nav-link text-light' do %>
-              <i></i> Books
+            <%= link_to class: 'nav-link text-dirk' do %>
+              <i></i> Books/
             <% end %>
           </li>
           <li>
-            <%= link_to class: 'nav-link text-light' do %>
-              <i></i> logout
+            <%= link_to class: 'nav-link text-dirk' do %>
+              <i></i> logout/
             <% end %>
           </li>
         
           <li>
-            <%= link_to class: 'nav-link text-light' do %>
-              <i></i> Home
+            <%= link_to class: 'nav-link text-dirk' do %>
+              <i></i> Home/
             <% end %>
           </li>
           <li>
-            <%= link_to class: 'nav-link text-light' do %>
-              <i></i> About
+            <%= link_to class: 'nav-link text-dirk' do %>
+              <i></i> About/
             <% end %>
           </li>
           <li>
-            <%= link_to class: 'nav-link text-light' do %>
-              <i></i> sign up
+            <%= link_to "/customers/sign_up",class: 'nav-link text-dirk' do %>
+              <i></i> sign up/
             <% end %>
           </li>
           <li>
-            <%= link_to class: 'nav-link text-light' do %>
-              <i></i> login
+            <%= link_to "/customers/sign_in",class: 'nav-link text-dirk' do %>
+              <i></i> login/
             <% end %>
           </li>
-        
+          <li>
+            <%= link_to "/admin/customers", class: 'nav-link text-dirk' do %>
+              <i></i> (admin)会員一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "/admin/sign_in", class: 'nav-link text-dirk' do %>
+              <i></i> (admin)Log in
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "/admin/sign_out", class: 'nav-link text-dirk' do %>
+              <i></i> (admin)Log out
+            <% end %>
+          </li>
         </ul>
       </div>
     </div>
