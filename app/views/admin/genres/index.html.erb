@@ -1,0 +1,24 @@
+<%= form_with model: @genre,url:"/admin/genres",method: :post do |f| %>
+  <div class="form-group">
+    ジャンル名
+    <%= f.text_field :name, class: 'form-control genre_name' %>
+  </div>
+  <button type="submit" class="btn btn-success">新規登録</button>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ジャンル</th>
+    </tr>
+  </thead>
+  <% @genres.each do |genre| %>
+  <tbody>
+    <tr>
+      <th scope="row"><%= genre.id %></th>
+      <td><%= genre.name %></td>
+      <td><%= link_to "編集する",  "/admin/genres/#{genre.id}/edit" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
