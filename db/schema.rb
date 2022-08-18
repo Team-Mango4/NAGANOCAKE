@@ -10,21 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2022_08_16_075008) do
-
-  create_table "orders", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.string "post_code", null: false
-    t.string "name", null: false
-    t.string "ship_address", null: false
-    t.integer "shipping_cost", null: false
-    t.integer "total_payment", null: false
-    t.integer "payment_method", null: false
-    t.integer "status", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-=======
 ActiveRecord::Schema.define(version: 2022_08_16_082729) do
 
   create_table "genres", force: :cascade do |t|
@@ -41,7 +26,19 @@ ActiveRecord::Schema.define(version: 2022_08_16_082729) do
     t.integer "price", null: false
     t.integer "genre_id", null: false
     t.boolean "is_active", default: true, null: false
->>>>>>> develop
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.string "post_code", null: false
+    t.string "name", null: false
+    t.string "ship_address", null: false
+    t.integer "shipping_cost", null: false
+    t.integer "total_payment", null: false
+    t.integer "payment_method", null: false
+    t.integer "status", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
