@@ -1,42 +1,46 @@
-<h1><%= @customer.first_name %><%= @customer.last_name %>の会員情報編集</h1>
-  <table class="table table-bordered">
-    <tbody>
-        <tr>
-          <%= form_with model: @customer, url: "/admin/customers/#{@customer.id}", method: :patch  do |f| %>
-          <div class="form-group">
-          <td>会員ID</td>
-          <td><%= f.text_field :id, class: "form-control" %></td>
-        </tr>
-        <tr>
-          <td>氏名</td>
-          <td><%= f.text_field :first_name, class: "form-control" %><%= f.text_field :last_name, class: "form-control" %></td>
-        </tr>
-        <tr>
-          <td>フリガナ</td>
-          <td><%= f.text_field :first_name_kana, class: "form-control" %><%= f.text_field :last_name_kana, class: "form-control" %></td>
-        </tr>
-        <tr>
-          <td>郵便番号</td>
-          <td><%= f.text_field :post_code, class: "form-control" %></td>
-        </tr>
-        <tr>
-          <td>住所</td>
-          <td><%= f.text_field :address, class: "form-control" %></td>
-        </tr>
-        <tr>
-          <td>電話番号</td>
-          <td><%= f.text_field :telephone_number, class: "form-control" %></td>
-        </tr>
-        <tr>
-          <td>メールアドレス</td>
-          <td><%= f.text_field :email, class: "form-control" %></td>
-        </tr>
-        <tr>
-          <td>会員ステータス</td>
-          <td><%= f.text_field :is_deleted, class: "form-control" %></td>
-        </tr>
-         <button type="submit" class="btn btn-secondary">変更を保存</button>
-        <% end %>
-    </tbody>
-  </table>
- 
+<div class="h3 pb-2 mb-4 text-success border-bottom border-success">
+  <%= @customer.first_name %><%= @customer.last_name %>の会員情報編集
+</div>
+<div class='container'>
+  <div class='row g-3'>
+    <div class='col-md-6 offset-md-3'>
+      <%= form_with model: @customer, url: "/admin/customers/#{@customer.id}", method: :patch  do |f| %>
+      <div class="form-group ">
+        <%= f.label :id,"会員ID",class: "text-success" %>
+        <%= f.text_field :id, class: "form-control" %>
+      </div>
+      <div class="form-group ">
+        <%= f.label :first_name,"氏名",class: "text-success" %>
+        <%= f.text_field :first_name, class: "form-control" %><%= f.text_field :last_name, class: "form-control" %>
+      </div>
+      <div class="form-group ">
+        <%= f.label :first_name_kana,"フリガナ",class: "text-success" %>
+        <%= f.text_field :first_name_kana, class: "form-control" %><%= f.text_field :last_name_kana, class: "form-control" %>
+      </div>
+      <div class="form-group ">
+        <%= f.label :post_code,"郵便番号",class: "text-success" %>
+        <%= f.text_field :post_code, class: "form-control" %>
+      </div>
+      <div class="form-group ">
+        <%= f.label :address,"住所",class: "text-success" %>
+        <%= f.text_field :address, class: "form-control" %>
+      </div>
+      <div class="form-group ">
+        <%= f.label :telephone_number,"電話番号",class: "text-success" %>
+        <%= f.text_field :telephone_number, class: "form-control" %>
+      </div>
+      <div class="form-group ">
+        <%= f.label :email,"メールアドレス",class: "text-success" %>
+        <%= f.text_field :email, class: "form-control" %>
+      </div>
+      <div class="form-group ">
+        <%= f.label :is_deleted,"会員ステータス",class: "text-success" %>
+        <%= f.text_field :is_deleted, class: "form-control" %>
+      </div>
+      <div class="text-right">
+        <button type="submit" class="btn btn-success rounded-pill">変更を保存</button>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
