@@ -1,22 +1,24 @@
 <h4>商品詳細</h4>
-<div>イメージタグ</div>
 <div>
-  <%= f.label '商品名'%>
+  <%= image_tag @item.image, size:'300x300' %>
+</div>
+<div>
+  <label>商品名</label>
   <%= @item.name %>
 </div>
 <div>
-  <%= f.label '商品説明'%>
+  <label>商品説明</label>
   <%= @item.introduction %>
 </div>
 <div>
-  <%= f.label 'ジャンル'%>
-  <%= @item.gunre %>
+  <label>ジャンル名</label>
+  <%= @item.gunre_id %>
 </div>
 <div>
-  <%= f.label '税込価格（税抜価格）'%>
+  <label>税込価格</label>
   <%= @item.price %>
 </div>
 <div>
-  <%= f.label '販売ステータス'%>
-  <%= @item.status %>
+  <label>販売ステータス</label>
+  <%= @item.is_active %>
 </div>
