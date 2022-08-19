@@ -11,17 +11,14 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+   root to: 'public/homes#top'
+   get 'about' => 'public/homes#about'
+
   namespace :admin do
     root to: "homes#top"
     resources :customers,only: [:index, :show, :edit, :update]
     resources :orders, only:[:show, :update]
     resources :genres, only:[:index, :create, :edit, :update]
   end
-
-  namespace :public do
-    root to: 'homes#top'
-    get 'about' => 'homes#about'
-  end
-
 
 end
