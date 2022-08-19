@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+   root to: 'public/homes#top'
+   get 'about' => 'public/homes#about'
 
   # 顧客用
   devise_for :customers,skip: [:passwords], controllers: {
@@ -19,9 +21,9 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
-    root to: 'homes#top'
-    get 'about' => 'homes#about'
+    resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
   end
+
 
 
 end
