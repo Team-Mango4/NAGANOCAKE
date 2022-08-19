@@ -1,18 +1,19 @@
 class Public::CartItmesController < ApplicationController
-  
+
   def index
+    puts 
   end
-  
+
   def create
-  end 
-  
+  end
+
   def update
-  end 
-  
+  end
+
   def destroy
-  end 
-  
+  end
+
   def destroy_all
-  end 
-  
+  end
+
 end
