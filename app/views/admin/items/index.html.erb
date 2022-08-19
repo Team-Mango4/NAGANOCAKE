@@ -1,0 +1,35 @@
+<h4>商品一覧</h4>
+ <table>
+
+   <thead>
+     <tr>
+       <th>商品ID</th>
+       <th>商品名</th>
+       <th>税抜価格</th>
+       <th>ジャンル</th>
+       <th>ステータス</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @items.each do |item| %>
+      <tr>
+        <td>
+         <%= @item.id %>
+        </td>
+        <td>
+         <%= @item.name %>
+        </td>
+        <td>
+         <%= @item.introduction %>
+        </td>
+        <td>
+         <%= @item.genre %>
+        </td>
+        <td>
+         <%= @item.status %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
