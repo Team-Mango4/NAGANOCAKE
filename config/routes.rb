@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
+    get "/orders/complete" => "orders#complete"
+    post "/orders/confirm" => "orders#confirm"
+    resources :orders, only:[:new, :index, :show, :create]
+    resources :ships, only:[:index, :edit, :create, :update,:destroy]
   end
 
 
