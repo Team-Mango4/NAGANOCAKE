@@ -21,6 +21,13 @@ Rails.application.routes.draw do
     resources :orders, only:[:index, :show, :update]
     resources :items, except:[:destroy]
   end
-  
+
+  namespace :public do
+    get "/orders/complete" => "orders#complete"
+    post "/orders/confirm" => "orders#confirm"
+    resources :orders, only:[:new, :index, :show, :create]
+    resources :ships, only:[:index, :edit, :create, :update,:destroy]
+  end
+
 
 end

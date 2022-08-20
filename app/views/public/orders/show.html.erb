@@ -1,0 +1,32 @@
+<h2>注文履歴詳細</h2>
+
+<!--注文情報-->
+<h2>注文日</h2>
+<p><%= @order_details.created_at %></p>
+<h2>配送先</h2>
+<span>
+  <%= @order_details.post_code %><br>
+  <%= @order_details.ship_address %><br>
+  <%= @order_details.name %>
+</span>
+<h2>支払い方法</h2>
+<p><%= @order_details.payment_method %></p>
+<h2>ステータス</h2>
+<p><%= @order_details.status %></p>
+<!--注文内容-->
+<h2>商品</h2>
+<p><%= @order_details.item_id %></p>
+<h2>単価（税込）</h2>
+<p><%= @order_details.price %></p>
+<h2>個数</h2>
+<p><%= @order_details.amount %></p>
+<h2>小計</h2>
+<p><%= @order_details.price %></p>
+<!--請求情報-->
+<h2>商品合計</h2>
+<p><%= @order_detail.price %></p>
+<h2>配送料</h2>
+<p><%= @order_details.shipping_cost %></p>
+<h2>ご請求額</h2>
+<p><%= @order_details.total_payment %></p>
+
