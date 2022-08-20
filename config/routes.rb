@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
+    resources :items, only: [:index, :show]
     resources :cart_items, only: [:index, :create, :update, :destroy]
     delete 'destroy_all' => 'cart_items#destroy_all'
   end
