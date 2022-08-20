@@ -21,6 +21,6 @@ Rails.application.routes.draw do
     resources :orders, only:[:index, :show, :update]
     resources :items, except:[:destroy]
   end
-
+  
 
 end
