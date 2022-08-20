@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   # 顧客用
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
@@ -27,6 +28,9 @@ Rails.application.routes.draw do
     post "/orders/confirm" => "orders#confirm"
     resources :orders, only:[:new, :index, :show, :create]
     resources :ships, only:[:index, :edit, :create, :update,:destroy]
+    resources :items, only: [:index, :show]
+    resources :cart_items, only: [:index, :create, :update, :destroy]
+    delete 'destroy_all' => 'cart_items#destroy_all'
   end
 
 
