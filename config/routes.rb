@@ -13,18 +13,18 @@ Rails.application.routes.draw do
   }
 
   root to: 'public/homes#top'
-   get 'about' => 'public/homes#about'
+  get 'about' => 'public/homes#about'
 
   namespace :admin do
     root to: "homes#top"
     resources :customers,only: [:index, :show, :edit, :update]
-    resources :orders, only:[:show, :update]
     resources :genres, only:[:index, :create, :edit, :update]
+    resources :orders, only:[:index, :show, :update]
+    resources :items, except:[:destroy]
   end
 
   namespace :public do
-    get 'cart_items' => 'cart_items#index'
-    resources :cart_items, only: [:create, :update, :destroy]
+    resources :cart_items, only: [:index, :create, :update, :destroy]
     delete 'destroy_all' => 'cart_items#destroy_all'
   end
 
