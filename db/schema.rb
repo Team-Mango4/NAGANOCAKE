@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_19_072005) do
+
+ActiveRecord::Schema.define(version: 2022_08_20_041505) do
+
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -81,9 +83,9 @@ ActiveRecord::Schema.define(version: 2022_08_19_072005) do
   end
 
   create_table "genres", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
   end
 
   create_table "items", force: :cascade do |t|
@@ -94,6 +96,17 @@ ActiveRecord::Schema.define(version: 2022_08_19_072005) do
     t.integer "price", null: false
     t.integer "genre_id", null: false
     t.boolean "is_active", default: true, null: false
+
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "item_id", null: false
+    t.integer "price", null: false
+    t.integer "amount", null: false
+    t.integer "making_status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -105,6 +118,15 @@ ActiveRecord::Schema.define(version: 2022_08_19_072005) do
     t.integer "total_payment", null: false
     t.integer "payment_method", null: false
     t.integer "status", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ships", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.string "post_code", null: false
+    t.string "address", null: false
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

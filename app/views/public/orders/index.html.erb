@@ -1,0 +1,22 @@
+<h1>注文履歴一覧</h1>
+
+<% @order_details.each do |order_details| %>
+
+  <p>注文日</p>
+  <span><%= order_details.created_at %></span>
+  <p>配送先</p>
+  <span>
+    <%= order_details.post_code %><br>
+    <%= order_details.ship_address %><br>
+    <%= order_details.name %>
+  </span>
+  <p>注文商品</p>
+  <span><%= order_details.item_id %></span>
+  <p>支払金額</p>
+  <span><%= order_details.price %></span>
+  <p>ステータス</p>
+  <span><%= order_details.making_status %></span>
+  <p>注文詳細</p>
+  <%= link_to "表示する", "/public/orders/#{@order_detail.id}" %>
+  
+<% end %>
