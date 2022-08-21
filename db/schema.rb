@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2022_08_20_041505) do
     t.integer "price", null: false
     t.integer "genre_id", null: false
     t.boolean "is_active", default: true, null: false
-    t.integer "gunre_id"
+
   end
 
   create_table "order_details", force: :cascade do |t|

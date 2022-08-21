@@ -1,4 +1,12 @@
 <h3>注文情報確認</h3>
-<%= @order.postal_code.body %>
-<%= @order.address.body %>
-<%= @order.name.body %>
+<!--支払い方法・お届け先-->
+<%= @order.name %>
+<%= @order.post_code %>
+<%= @order.ship_address %>
+
+<%= form_with model: @order, url: '/public/orders', method: :post do |f| %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :post_code %>
+  <%= f.hidden_field :ship_address %>
+<%= f.submit "注文を確定する" %>
+<% end %>
