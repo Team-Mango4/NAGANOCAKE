@@ -49,9 +49,19 @@
               <i></i> login/
             <% end %>
           </li>
+           <li>
+            <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-dirk' do %>
+              <i></i> logout/
+            <% end %>
+          </li>
           <li>
             <%= link_to "/admin/customers", class: 'nav-link text-dirk' do %>
               <i></i> (admin)会員一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "/admin/genres", class: 'nav-link text-dirk' do %>
+              <i></i> (admin)ジャンル一覧
             <% end %>
           </li>
           <li>
@@ -60,7 +70,7 @@
             <% end %>
           </li>
           <li>
-            <%= link_to "/admin/sign_out", class: 'nav-link text-dirk' do %>
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dirk' do %>
               <i></i> (admin)Log out
             <% end %>
           </li>
