@@ -1,7 +1,6 @@
 class Public::CartItemsController < ApplicationController
 
   def index
-    puts hi
     @cart_items = CartItem.all
   end
 
@@ -16,6 +15,7 @@ class Public::CartItemsController < ApplicationController
 
   def destroy_all
   end
+
 
   private
   def cart_item_params
