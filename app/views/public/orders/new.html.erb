@@ -2,27 +2,25 @@
 <h3>支払い方法</h3>
   <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
   <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
-  
+
   <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
   <%= f.label :payment_method, Order.payment_methods_i18n[:transfer]%>
 
 <h3>お届け先</h3>
 <!--ご自身の住所-->
-<%= f.radio_button :address, "current_customer.address" %>
+<%= f.radio_button :address, @customer %>
 <%= f.label :address, "ご自身の住所" %>
-current_customer.address
 <br>
 <!--登録済住所から選択-->
-<%= f.radio_button :ships_id, "curren %>
-<%= f.select :ships_id, options_from_collection_for_select(Ship.all, :id, :address_display) %><br>
+<%= f.select :ship_id, options_from_collection_for_select(Ship.all, :id, :ship_display) %><br>
 <br>
 <!--新しいお届け先-->
   <%= f.label :post_code,"郵便番号（ハイフンなし）" %><br>
   <%= f.text_field :post_code %><br>
-  <%= f.label :opinion,"住所" %><br>
-  <%= f.text_field :title %><br>
-  <%= f.label :opinion,"宛名" %><br>
-  <%= f.text_field :title %><br>
+  <%= f.label :ship_address,"住所" %><br>
+  <%= f.text_field :ship_address %><br>
+  <%= f.label :name,"宛名" %><br>
+  <%= f.text_field :name %><br>
 
   <%= f.submit '確認画面へ進む' %>
 <% end %>
