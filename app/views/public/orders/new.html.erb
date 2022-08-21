@@ -13,7 +13,7 @@
 current_customer.address
 <br>
 <!--登録済住所から選択-->
-<%= f.radio_button :ships_id, "curren %>
+<%= f.radio_button :ships_id, "current_customer.address" %>
 <%= f.select :ships_id, options_from_collection_for_select(Ship.all, :id, :address_display) %><br>
 <br>
 <!--新しいお届け先-->
