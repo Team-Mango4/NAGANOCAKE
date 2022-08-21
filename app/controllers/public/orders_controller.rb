@@ -25,16 +25,16 @@ class Public::OrdersController < ApplicationController
     end
     # 履歴/public/orders
     def index
-        @order_details = Order_detail.all
+        @order_details = OrderDetail.all
     end
     # 詳細/public/orders/:id
     def show
-        @order_detail = Order_detail.find(params[:id])  
+        @order_detail = OrderDetail.find(params[:id])  
     end
     
     private
 
     def order_params
-        params.require(:order).permit(:post_code, :name,:ship_address,:shipping_cost,:total_payment,:payment_method,:status)
+        params.require(:order).permit(:post_code, :name, :ship_address, :shipping_cost, :total_payment, :payment_method, :status)
     end
 end

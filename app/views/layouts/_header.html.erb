@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-info">
     <div class="container">
       <a class="navbar-brand" href="/"><span>NAGANOCAKE</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,73 +7,53 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-        
+        <% if customer_signed_in? %>
           <li>
-            <%= link_to class: 'nav-link text-dirk' do %>
-              <i></i> Home/
-            <% end %>
+            <!-- %= link_to "マイページ", public_customer_path(current_customer), class: 'nav-link text-dirk' % -->
           </li>
           <li>
-            <%= link_to class: 'nav-link text-dirk' do %>
-              <i></i> Users/
-            <% end %>
+            <%= link_to '商品一覧', public_items_path, class: 'nav-link text-dirk' %>
           </li>
           <li>
-            <%= link_to class: 'nav-link text-dirk' do %>
-              <i></i> Books/
-            <% end %>
+            <%= link_to "カート", public_cart_items_path, class: 'nav-link text-dirk'%>
           </li>
           <li>
-            <%= link_to class: 'nav-link text-dirk' do %>
-              <i></i> logout/
-            <% end %>
+            <%= link_to "ログアウト", destroy_customer_session_path, class: 'nav-link text-dirk' %>
           </li>
-        
+
+        <% elsif admin_signed_in? %>
+
           <li>
-            <%= link_to class: 'nav-link text-dirk' do %>
-              <i></i> Home/
-            <% end %>
+            <%= link_to '商品一覧', admin_items_path, class: 'nav-link text-dirk' %>
           </li>
           <li>
-            <%= link_to class: 'nav-link text-dirk' do %>
-              <i></i> About/
-            <% end %>
+            <%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dirk' %>
           </li>
           <li>
-            <%= link_to "/customers/sign_up",class: 'nav-link text-dirk' do %>
-              <i></i> sign up/
-            <% end %>
+            <%= link_to "注文履歴一覧", admin_items_path, class: 'nav-link text-dirk'%>
           </li>
           <li>
-            <%= link_to "/customers/sign_in",class: 'nav-link text-dirk' do %>
-              <i></i> login/
-            <% end %>
-          </li>
-           <li>
-            <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-dirk' do %>
-              <i></i> logout/
-            <% end %>
+            <%= link_to "ジャンル一覧", admin_jenres_path, class: 'nav-link text-dirk'%>
           </li>
           <li>
-            <%= link_to "/admin/customers", class: 'nav-link text-dirk' do %>
-              <i></i> (admin)会員一覧
-            <% end %>
+            <%= link_to "ログアウト", destroy_admin_session_path, class: 'nav-link text-dirk' %>
+          </li>
+
+        <% else %>
+          <li>
+            <%= link_to "About", about_path, class: 'nav-link text-dirk' %>
           </li>
           <li>
-            <%= link_to "/admin/genres", class: 'nav-link text-dirk' do %>
-              <i></i> (admin)ジャンル一覧
-            <% end %>
+            <%= link_to '商品一覧', public_items_path, class: 'nav-link text-dirk' %>
           </li>
           <li>
-            <%= link_to "/admin/sign_in", class: 'nav-link text-dirk' do %>
-              <i></i> (admin)Log in
-            <% end %>
+            <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dirk'%>
           </li>
           <li>
-            <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dirk' do %>
-              <i></i> (admin)Log out
-            <% end %>
+            <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dirk' %>
           </li>
+
+        <% end %>
         </ul>
       </div>
     </div>

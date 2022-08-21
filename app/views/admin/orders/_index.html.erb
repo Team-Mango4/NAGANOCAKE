@@ -12,20 +12,21 @@
           </thead>
 
           <tbody>
-            <!--#　oderのeach doを使用-->
+            <% @orders.each do |order| %>
             <tr>
               <td>
-                aaaaaaaaaaaaaaa<!--日時-->
+                <%= order.updated_at %>
               </td>
               <td>
-                山田花子<!--名前-->
+                <%= order.cunstomer.name %>
               </td>
               <td>
-                ショートケーキ1個<!--購入個数-->
+                <%= order.order_detail.amount %>
               </td>
               <td>
-                入金済み<!--注文ステータス-->
+                <%= order.status %>
               </td>
             </tr>
+            <% end %>
           </tbody>
         </table>
