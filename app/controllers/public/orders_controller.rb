@@ -13,14 +13,14 @@ class Public::OrdersController < ApplicationController
 			@order.post_code = current_customer.post_code
 			@order.ship_address = current_customer.address
 			@order.name = current_customer.first_name + current_customer.last_name
-			
+
 
 		elsif params["address_option"] == "1"
             @ship = Ship.find(params[:order][:ship_id])
             @order.post_code = @ship.post_code
             @order.ship_address = @ship.address
             @order.name = @ship.name
-            
+
 
 		elsif params["address_option"] == "2"
 			@order.post_code = params[:order][:post_code]
