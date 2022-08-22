@@ -20,16 +20,13 @@ class Public::OrdersController < ApplicationController
     # 確定
     def create
         @order = Order.new(order_params)
-        
         @order.customer_id = current_customer.id
-
-        
-        @order.save!
+        @order.save
         redirect_to public_orders_complete_path
     end
     # 履歴/public/orders
     def index
-        @order_details = Order_detail.all
+        @order_details = OrderDetail.all
     end
     # 詳細/public/orders/:id
     def show
