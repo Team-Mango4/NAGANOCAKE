@@ -1,31 +1,24 @@
 <div class="container">
   <div class="row">
+    
 
     <div class="col-md-3">
-      ジャンル検索
+      <!--ジャンル検索-->
     </div>
-
-
-
-
 
     <div classo="col-md-8 offset-md-1">
       <h1>
         商品一覧(全<%= Item.count %>)
       </h1>
-
-      <%# @items.each do |item| %>
-        <tr>
-          <td>
-            <%#= item.name %><p>ネーム</p>
-            <%#= item.price %><p>プライス</p>
-          </td>
-        </tr>
-      <%# end %>
-
-
-
-
+      <table class="table d-flex flex-wrap">
+        <% @items.each do |item| %>
+        <tbody>
+          <tr><td><%= image_tag item.image, size: "250x150" %> </td></tr>
+          <tr><td><%= item.name %> </td></tr>
+          <tr><td><%= item.price %> </td></tr>
+        </tbody>
+        <% end %>
+      </table>
     </div>
 
 
