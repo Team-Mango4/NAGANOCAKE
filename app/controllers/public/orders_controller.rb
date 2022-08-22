@@ -13,14 +13,14 @@ class Public::OrdersController < ApplicationController
 			@order.post_code = current_customer.post_code
 			@order.ship_address = current_customer.address
 			@order.name = current_customer.first_name + current_customer.last_name
-			
+
 
 		elsif params["address_option"] == "1"
             @ship = Ship.find(params[:order][:ship_id])
             @order.post_code = @ship.post_code
             @order.ship_address = @ship.address
             @order.name = @ship.name
-            
+
 
 		elsif params["address_option"] == "2"
 			@order.post_code = params[:order][:post_code]
@@ -42,11 +42,11 @@ class Public::OrdersController < ApplicationController
     end
     # 履歴/public/orders
     def index
-        @order_details = OrderDetail.all
+        @orders = current_customer.orders.all
     end
     # 詳細/public/orders/:id
     def show
-        @order_detail = Order_detail.find(params[:id])
+        @order_detail = OrderDetail.find(params[:id])
     end
 
     private
