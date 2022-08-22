@@ -28,7 +28,7 @@ class Public::ShipsController < ApplicationController
     redirect_to '/public/ships'
   end
 
-  private
+  protected
 
   def ship_params
     params.require(:ship).permit(:post_code,:address,:name)
