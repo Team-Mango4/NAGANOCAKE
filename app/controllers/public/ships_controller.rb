@@ -6,7 +6,6 @@ class Public::ShipsController < ApplicationController
   end
 
   def create
-    @customer = Customer.find(params[:customer_id])
     @ship = Ship.new(ship_params)
     @ship.customer_id = current_customer.id
     @ship.save
@@ -29,7 +28,7 @@ class Public::ShipsController < ApplicationController
     redirect_to '/public/ships'
   end
 
-  private
+  protected
 
   def ship_params
     params.require(:ship).permit(:post_code,:address,:name)
