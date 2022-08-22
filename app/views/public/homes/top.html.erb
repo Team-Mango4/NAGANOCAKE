@@ -1,23 +1,37 @@
-<div class="container">
+<div class="container text-center">
   <div class="row">
-
-
-    <div class="col-md-4 offset-md-1">
-    ジャンル検索
+    <div class="col-4">
+      <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        ジャンル検索
+      </div>
+      <ul class="list-group list-group-flush">
+        <% @genres.each do |genre| %>
+        <li class="list-group-item"><%= genre.name %></li>
+        <% end %>
+      </ul>
+      </div>
     </div>
-
-    <div class="col-md-6 offset-md-2">
-
-   　  <dvi class="row">
-  　    中心ようこそ長野Cakeへ
-  　   </div>
-
-  　   <div class="row">
-  　   新着商品欄
-    　</div>
-
-  </div>
-
-
+    <div class="col-8"> 中心ようこそ長野Cakeへ </div>
   </div>
 </div>
+</div>
+<div class="container">
+  <div class="flex-row">
+    <div class="col-4"></div>
+    <div class="col-8">
+      新着商品欄
+       <% @items.each do |item| %>
+       <div class="card" style="width: 18rem;">
+       <%= image_tag item.image, size: "250x150" ,class:"card-img-top"%>
+       <div class="card-body">
+        <p class="card-text"><%= item.name %>&yen;<%= item.price %></p>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+  
+
+
+

@@ -42,11 +42,11 @@ class Public::OrdersController < ApplicationController
     end
     # 履歴/public/orders
     def index
-        @order_details = OrderDetail.all
+        @orders = current_customer.orders.all
     end
     # 詳細/public/orders/:id
     def show
-        @order_detail = Order_detail.find(params[:id])
+        @order_detail = OrderDetail.find(params[:id])
     end
 
     private
