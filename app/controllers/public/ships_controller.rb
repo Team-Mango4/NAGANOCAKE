@@ -6,7 +6,6 @@ class Public::ShipsController < ApplicationController
   end
 
   def create
-    @customer = Customer.find(params[:customer_id])
     @ship = Ship.new(ship_params)
     @ship.customer_id = current_customer.id
     @ship.save
