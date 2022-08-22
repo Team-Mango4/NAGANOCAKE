@@ -5,7 +5,9 @@
       <h2>ショッピングカート</h2>
     </div>
     <div class="col-md-2 offset-me-5">
-      カートをからにする
+      <%= link_to public_destroy_all_path, method: :delete do %>
+        カートをからにする
+      <% end %>
     </div>
   </div>
 
@@ -38,6 +40,11 @@
               <!--小計を求めるためのメソッド(モデルに定義したもの)-->
               &yen;<%= cart_item.subtotal %>
             </td>
+            <td>
+              <%= link_to  public_cart_item_path(cart_item.id), method: :delete do %>
+                <p>削除する</p>
+              <% end %>
+            </td>
 
           </tr>
         </tbody>
@@ -48,7 +55,7 @@
 
   <div class="row">
     <div class="col-md-2 offset-md-3">
-      <%= link_to public_cart_items_path do %>
+      <%= link_to public_items_path do %>
         <p>買い物を続ける</p>
       <% end %>
     </div>
