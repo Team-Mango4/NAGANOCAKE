@@ -26,7 +26,7 @@ class Public::OrdersController < ApplicationController
     end
     # 履歴/public/orders
     def index
-        @order_details = Order_detail.all
+        @order_details = OrderDetail.all
     end
     # 詳細/public/orders/:id
     def show
