@@ -2,6 +2,7 @@ class Public::CartItemsController < ApplicationController
 
   def index
     @cart_items = CartItem.all
+    @total = 0
   end
 
   def create
@@ -15,6 +16,8 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy
+    @cart_item = 
+    
   end
 
   def destroy_all

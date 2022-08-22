@@ -20,6 +20,7 @@ class Admin::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @genre = @item.genre
   end
 
   def edit
@@ -28,11 +29,11 @@ class Admin::ItemsController < ApplicationController
 
   def update
    item = Item.find(params[:id])
-   if item.update(item_params)
+    if item.update(item_params)
      redirect_to "/admin/items/#{item.id}"
     else
      render action: :edit
-   end
+    end
   end
 
   protected
