@@ -2,8 +2,14 @@
 
 class Public::SessionsController < Devise::SessionsController
   before_action :customer_state, only: [:create]
-  
-  
+
+  def after_customer_sign_out_path_for
+    about_path
+  end
+
+
+
+
  protected
 # 退会しているかを判断するメソッド
   def customer_state
