@@ -25,14 +25,18 @@
           <tr>
 
             <td>
-              <%= image_tag        %><%= cart_item.name %>
+              <%= image_tag cart_item.item.image, size: "50x50" %><%= cart_item.item.name %>
+            </td>
+            <td>
+               <!--税込表示をするためのメソッド(モデルに定義したもの)-->
+              &yen;<%= cart_item.item.with_tax_price %>
             </td>
             <td>
               <%= cart_item.amount %>
             </td>
             <td>
-            </td>
-            <td>
+              <!--小計を求めるためのメソッド(モデルに定義したもの)-->
+              &yen;<%= cart_item.subtotal %>
             </td>
 
           </tr>
@@ -44,14 +48,20 @@
 
   <div class="row">
     <div class="col-md-2 offset-md-3">
-      <p>買い物を続ける</p>
+      <%= link_to public_cart_items_path do %>
+        <p>買い物を続ける</p>
+      <% end %>
     </div>
     <div class="col-md-2 offset-md-5">
       <table>
         <tbody>
           <tr>
             <td>合計金額</td>
-            <td>金額リンク</td>
+            <!--合計金額の計算-->
+            <% @cart_items.each do |cart_item| %>
+              <% @total += cart_item.subtotal %>
+            <% end %>
+            <td>&yen;<%= @total %></td>
           </tr>
         </tbody>
       </table>
@@ -60,7 +70,9 @@
 
    <div class=row>
     <div class="col-md-12 text-center">
-      <p>情報入力に進む</p>
+      <%= link_to new_public_order_path do %>
+        <p>情報入力に進む</p>
+      <% end %>
     </div>
   </div>
 
