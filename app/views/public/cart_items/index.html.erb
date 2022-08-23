@@ -43,11 +43,13 @@
             <td>
             <%= form_with model: cart_item, url: public_cart_item_path(cart_item.id), method: :patch do |f| %>
               <%= f.select :amount, *[1..10] %>
-            <%= f.submit '変更' %>
-            </div>
-        <% end %>
-
+              <%= f.submit '変更' %>
+            <% end %>
             </td>
+            </div>
+
+
+
             <td>
               <%= link_to  public_cart_item_path(cart_item.id), method: :delete do %>
                 <p>削除する</p>
