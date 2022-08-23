@@ -9,7 +9,7 @@ class Public::OrdersController < ApplicationController
         @order.customer_id = current_customer.id
 		@cart_items = current_customer.cart_items.all
 		@order.shipping_cost =800
-		@order.total_payment =0
+		@order.total_payment = 0
 		@order.payment_method = params[:order][:payment_method]
 		if params["address_option"] == "0"
 			@order.post_code = current_customer.post_code
@@ -40,9 +40,8 @@ class Public::OrdersController < ApplicationController
         cart_items = current_customer.cart_items.all
         @order = Order.new(order_params)
         @order.customer_id = current_customer.id
-        @order.shipping_cost =800
-        @order.total_payment = 0
-        @order.status=0
+        @order.shipping_cost = 800
+        @order.status = 0
         if @order.save
             cart_items.each do |cart_item|
             order_detail = OrderDetail.new
