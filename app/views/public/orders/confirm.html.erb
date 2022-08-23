@@ -70,6 +70,7 @@
   <%= f.hidden_field :ship_address %>
   <%= f.hidden_field :shipping_cost %>
   <%= f.hidden_field :status %>
+  <%= f.hidden_field :total_payment, :value => @total_payment %>
 
 <%= f.submit "注文を確定する" %>
 <% end %>
