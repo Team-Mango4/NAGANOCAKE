@@ -11,6 +11,8 @@ class Admin::OrdersController < ApplicationController
  def update
  end
 
+ protected
+
  def order_params
   params.require(:order).permit(:post_code, :name, :ship_address, :shipping_cost, :total_payment, :payment_method, :status)
  end
