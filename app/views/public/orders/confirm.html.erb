@@ -15,9 +15,9 @@
       <td><%= image_tag cart_item.item.image, size: "50x50" %><%= cart_item.item.name %></td>
       <td>&yen;<%= cart_item.item.with_tax_price %></td>
       <td><%= cart_item.amount %></td>
-      <td><%= cart_item.amount+cart_item.price %></td>
+      <td><%= cart_item.amount+cart_item.item.price %></td>
     </tr>
-    
+    <% end %>
   </tbody>
 </table>
 
@@ -31,16 +31,16 @@
   </thead>
   <tbody>
     <tr>
-      <td><= @cart_items.shipping_cost ></td>
-      <td><= @cart_items.amount+@cart_items.price ></td>
-      <td><= @cart_items.total_payment ></td>
+      <td>&yen;<%= @shipping_cost %></td>
+      <td>&yen;<%= subtotal %></td>
+      <td>< 請求金額 ></td>
     </tr>
-    <% end %>
+
   </tbody>
 </table>
 
 <h3>支払い方法</h3>
-<%= @order.payment_method%>
+<%= @order.payment_method %>
 
 <h3>お届け先</h3>
 <%= @order.name %>

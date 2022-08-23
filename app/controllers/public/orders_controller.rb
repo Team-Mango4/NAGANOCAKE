@@ -7,8 +7,10 @@ class Public::OrdersController < ApplicationController
     def confirm
         @order = Order.new(order_params)
         @order.customer_id = current_customer.id
-		@cart_items = @order.cart_items
-# 		@total = 
+		@cart_items = current_customer.cart_items
+		@shipping_cost = 800
+		@total =0
+		@total_payment = 0
 		@order.payment_method = params[:order][:payment_method]
 		if params["address_option"] == "0"
 			@order.post_code = current_customer.post_code
