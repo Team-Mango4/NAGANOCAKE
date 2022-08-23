@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
-    
+
 
     <div class="col-md-3">
       <!--ジャンル検索-->
     </div>
+
 
     <div classo="col-md-8 offset-md-1">
       <h1>
@@ -13,9 +14,23 @@
       <table class="table d-flex flex-wrap">
         <% @items.each do |item| %>
         <tbody>
-          <tr><td><%= image_tag item.image, size: "250x150" %> </td></tr>
-          <tr><td><%= item.name %> </td></tr>
-          <tr><td>&yen;<%= item.price %> </td></tr>
+            <tr>
+              <td>
+              <%= link_to public_item_path(item.id) do %>
+                <%= image_tag item.image, size: "250x150" %>
+              <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= link_to public_item_path(item.id) do %>
+                  <%= item.name %>
+                <% end %>
+              </td>
+            </tr>
+          <tr>
+            <td>&yen;<%= item.price %> </td>
+          </tr>
         </tbody>
         <% end %>
       </table>
