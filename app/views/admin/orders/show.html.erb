@@ -1,39 +1,28 @@
 <h4>注文履歴詳細</h4>
+<div>
+  <label>購入者</label>
+  <%= name %>
+</div>
 
-  <p>購入者</p>
+<div>
+  <label>注文日</label>
+  <%= date %>
+</div>
 
-  <p>注文日</p>
+<div>
+  <label>配送先</label>
+  <%= address %>
+</div>
 
-  <p>配送先</p>
+<div>
+  <label>支払い方法</label>
+  <%= payment_method %>
+</div>
 
-  <p>支払い方法</p>
+<div>
+  <label>注文ステータス</label>
+  <%= status %>
+</div>
 
-  <p>注文ステータス</p>
-  <!--button-->
 
-<table>
-  <thead>
-    <tr>
-      <th>商品名</th>
-      <th>単価（税込）</th>
-      <th>数量</th>
-      <th>小計</th>
-      <th>製作ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-        <%= render order_details/making_status %>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<%= render 'order_details/making_status' %>
