@@ -42,6 +42,7 @@ class Public::OrdersController < ApplicationController
         @order = Order.new(order_params)
         @order.customer_id = current_customer.id
         @order.shipping_cost = 800
+        @order.status = 0
         if @order.save
             cart_items.each do |cart_item|
             order_detail = OrderDetail.new
