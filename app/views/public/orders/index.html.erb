@@ -8,14 +8,14 @@
   <span>
     <%= order.post_code %><br>
     <%= order.ship_address %><br>
-    <%= @order.name %>
+    <%= order.name %>
   </span>
   <p>注文商品</p>
-  <span><= @order.item_id ></span>
+  <span><%= order.item_id.name %></span>
   <p>支払金額</p>
-  <span><= @order.price ></span>
+  <span><%= order.total_payment %></span>
   <p>ステータス</p>
-  <span><= @order.making_status ></span>
+  <span><%= order.status %></span>
   <p>注文詳細</p>
-  %= link_to "表示する", "/public/orders/#{@order_detail.id}" >
-  <% end %>
+  <%#= link_to "表示する", "/public/orders/#{@order_detail.id}" %>
+<% end %>
