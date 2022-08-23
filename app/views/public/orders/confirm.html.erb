@@ -1,39 +1,43 @@
-<!--<h3>注文情報確認</h3>-->
-<!--<table class="table">-->
-<!--  <thead>-->
-<!--    <tr>-->
-<!--      <th scope="col">商品名</th>-->
-<!--      <th scope="col">単価（税込）</th>-->
-<!--      <th scope="col">数量</th>-->
-<!--      <th scope="col">小計</th>-->
-<!--    </tr>-->
-<!--  </thead>-->
-<!--  <tbody>-->
-<!--    <tr>-->
-<!--      <td><= @cart_items ></td>-->
-<!--      <td><= @cart_items.price ></td>-->
-<!--      <td><= @cart_items.amount ></td>-->
-<!--      <td><= @cart_items.amount+@cart_items.price ></td>-->
-<!--    </tr>-->
-<!--  </tbody>-->
-<!--</table>-->
+<h3>注文情報確認</h3>
 
-<!--<table class="table">-->
-<!--  <thead>-->
-<!--    <tr>-->
-<!--      <th scope="col">送料</th>-->
-<!--      <th scope="col">商品合計</th>-->
-<!--      <th scope="col">請求金額</th>-->
-<!--    </tr>-->
-<!--  </thead>-->
-<!--  <tbody>-->
-<!--    <tr>-->
-<!--      <td><= @cart_items.shipping_cost ></td>-->
-<!--      <td><= @cart_items.amount+@cart_items.price ></td>-->
-<!--      <td><= @cart_items.total_payment ></td>-->
-<!--    </tr>-->
-<!--  </tbody>-->
-<!--</table>-->
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">商品名</th>
+      <th scope="col">単価（税込）</th>
+      <th scope="col">数量</th>
+      <th scope="col">小計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @cart_items.each do |cart_item| %>
+      <td><%= image_tag cart_item.item.image, size: "50x50" %><%= cart_item.item.name %></td>
+      <td>&yen;<%= cart_item.item.with_tax_price %></td>
+      <td><%= cart_item.amount %></td>
+      <td><%= cart_item.amount+cart_item.price %></td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">送料</th>
+      <th scope="col">商品合計</th>
+      <th scope="col">請求金額</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><= @cart_items.shipping_cost ></td>
+      <td><= @cart_items.amount+@cart_items.price ></td>
+      <td><= @cart_items.total_payment ></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <h3>支払い方法</h3>
 <%= @order.payment_method%>

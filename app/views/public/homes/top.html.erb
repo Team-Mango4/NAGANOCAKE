@@ -1,37 +1,31 @@
 <div class="container text-center">
   <div class="row">
     <div class="col-4">
-      <div class="card" style="width: 18rem;">
-      <div class="card-header">
-        ジャンル検索
-      </div>
-      <ul class="list-group list-group-flush">
-        <% @genres.each do |genre| %>
-        <li class="list-group-item"><%= genre.name %></li>
-        <% end %>
-      </ul>
-      </div>
+      <!--ジャンル一覧-->
+    <%= render 'public/homes/genres', genres: @genres %>
     </div>
     <div class="col-8"> 中心ようこそ長野Cakeへ </div>
   </div>
 </div>
-</div>
+
 <div class="container">
-  <div class="flex-row">
-    <div class="col-4"></div>
-    <div class="col-8">
-      新着商品欄
-       <% @items.each do |item| %>
-       <div class="card" style="width: 18rem;">
-       <%= image_tag item.image, size: "250x150" ,class:"card-img-top"%>
-       <div class="card-body">
-        <p class="card-text"><%= item.name %>&yen;<%= item.price %></p>
-      </div>
-      <% end %>
+  <div class="row">
+新着商品欄
+<% @items.each do |item| %>
+  <%= link_to "/public/items/#{item.id}" do %>
+  <div class="col-md-4">
+    <div class="card">
+    <%= image_tag item.image, size: "250x150" ,class:"card-img-top"%>
+    <div class="card-body text-center">
+    <h4 class="card-title"></h4>
+    <p class="card-text"><%= item.name %>&yen;<%= item.price %></p>
+    </div>
+    <% end %>
     </div>
   </div>
+<%end%>
 </div>
   
-
-
-
+<div class="text-right">
+  <%= link_to "全ての商品を見る＞", "/public/items"%>
+</div>
