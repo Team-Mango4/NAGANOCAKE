@@ -65,7 +65,7 @@
 
   <div class="row">
     <div class="col-md-2 offset-md-3">
-      <%= link_to public_items_path do %>
+      <%= link_to root_path do %>
         <p>買い物を続ける</p>
       <% end %>
     </div>
@@ -87,8 +87,10 @@
 
    <div class=row>
     <div class="col-md-12 text-center">
-      <%= link_to new_public_order_path do %>
-        <p>情報入力に進む</p>
+      <% if @cart_items.present? %>
+        <%= link_to new_public_order_path do %>
+          <p>情報入力に進む</p>
+        <% end %>
       <% end %>
 
       <!--試し実験 -->
