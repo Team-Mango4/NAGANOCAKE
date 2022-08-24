@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <table class="table">
+      <table class="table table-sm">
         <thead>
           <tr>
             <th>注文日</th>
@@ -16,15 +16,25 @@
         <tbody>
           <tr>
             <td class="align-middle"><%= order.created_at %></td>
-            <td>
+            <td class="align-middle">
               〒<%= order.post_code %></br>
               <%= order.ship_address %></br>
               <%= order.name %>
             </td>
-            <!--商品名がまだ入ってません -->
-            <td>～商品名を入れる～</td>
+            <td class="align-middle">
+              <table class="table-sm table-borderless">
+              <% order.order_details.each do |order_detail| %>
+                <tbody>
+                  <tr>
+                    <td><%= order_detail.item.name %></td>
+                  </tr>
+                </tbody>
+              <% end %>
+              </table>
+            </td>
             <td class="align-middle"><%= order.total_payment %></td>
             <td class="align-middle"><%= order.status %></td>
+            <td class="align-middle"><%= link_to "表示する", "/public/orders/#{order.id}" %></td>
             <%#= link_to "表示する", "/public/orders/#{@order_detail.id}" %>
           </tr>
           </tbody>

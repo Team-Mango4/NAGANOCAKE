@@ -9,7 +9,7 @@ class Item < ApplicationRecord
 
   #itemの金額(price)の税込表示をするためのメソッド
   def with_tax_price
-    (price * 1.1.floor)
+    (price * 1.1).floor
   end
 
 end
