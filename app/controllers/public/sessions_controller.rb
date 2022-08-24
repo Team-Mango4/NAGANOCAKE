@@ -7,10 +7,17 @@ class Public::SessionsController < Devise::SessionsController
     about_path
   end
 
-
-
-
  protected
+
+  def reject_customer
+    @customer = Customer.find(params[:id])
+      if @user
+        if @user.valid_password?(params[:customer][:password]) &&  (@customer.active_for_authentication? == true)
+        redirect_to new_customer_registration
+        end
+      end
+  end
+
 # 退会しているかを判断するメソッド
   def customer_state
     ## 【処理内容1】 入力されたemailからアカウントを1件取得
