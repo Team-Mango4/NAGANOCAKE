@@ -1,39 +1,49 @@
 <h4>注文履歴詳細</h4>
+<div>
+  <label>購入者</label>
+  <%= @order.customer.first_name + @order.customer.last_name %>
+</div>
 
-  <p>購入者</p>
+<div>
+  <label>注文日</label>
+  <%= @order.updated_at %>
+</div>
 
-  <p>注文日</p>
+<div>
+  <label>配送先</label>
+  <%= @order.ship_address %>
+</div>
 
-  <p>配送先</p>
+<div>
+  <label>支払い方法</label>
+  <%= @order.payment_method %>
+</div>
 
-  <p>支払い方法</p>
+<div>
+  <label>注文ステータス</label>
+    <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f|%>
+      <%= f.select :status, Order.statuses.keys.to_a %>
+      <%= f.submit '更新' %>
+    <% end %>
+</div>
 
-  <p>注文ステータス</p>
-  <!--button-->
+<div>
+  <%= render 'admin/order_details/show' %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>商品名</th>
-      <th>単価（税込）</th>
-      <th>数量</th>
-      <th>小計</th>
-      <th>製作ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-      </td>
-      <td>
-        <%= render order_details/making_status %>
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+<div>
+  <label>商品合計</label>
+    <% @order_details.each do |order_detail| %>
+      <% @subtotal += order_detail.subtotal %>
+    <% end %>
+    <%= @subtotal %>円
+</div>
+<div>
+  <label>送料</label>
+    <%= @order.shipping_cost %>円
+</div>
+<div>
+  <label>請求金額合計</label>
+    <%= @order.total_payment %>円
+</div>
