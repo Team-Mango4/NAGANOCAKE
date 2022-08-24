@@ -23,7 +23,6 @@ class Public::CustomersController < ApplicationController
   def withdraw
     @customer = current_customer
     @customer.update(is_deleted: true)
-    flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
   end
 
