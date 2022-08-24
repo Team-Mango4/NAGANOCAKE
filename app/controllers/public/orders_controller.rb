@@ -58,12 +58,12 @@ class Public::OrdersController < ApplicationController
     end
     # 履歴/public/orders
     def index
-        @order_detail = current_customer.order_detail.all
+        @order_detail = current_customer.orders
+        
     end
     # 詳細/public/orders/:id
     def show
         @order_detail = OrderDetail.find(params[:id])
-        
     end
 
     private
