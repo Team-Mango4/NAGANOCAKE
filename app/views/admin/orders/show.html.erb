@@ -21,7 +21,10 @@
 
 <div>
   <label>注文ステータス</label>
-  <%= @order.status %>
+    <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f|%>
+      <%= f.select :status, Order.statuses.keys.to_a %>
+      <%= f.submit '更新' %>
+    <% end %>
 </div>
 
 <div>
@@ -29,3 +32,18 @@
 </div>
 
 
+<div>
+  <label>商品合計</label>
+    <% @order_details.each do |order_detail| %>
+      <% @subtotal += order_detail.subtotal %>
+    <% end %>
+    <%= @subtotal %>円
+</div>
+<div>
+  <label>送料</label>
+    <%= @order.shipping_cost %>円
+</div>
+<div>
+  <label>請求金額合計</label>
+    <%= @order.total_payment %>円
+</div>

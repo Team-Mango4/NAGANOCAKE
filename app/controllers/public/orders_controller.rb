@@ -46,7 +46,7 @@ class Public::OrdersController < ApplicationController
         if @order.save
             cart_items.each do |cart_item|
             order_detail = OrderDetail.new
-            order_detail.item_id = cart_item.id
+            order_detail.item_id = cart_item.item.id
             order_detail.order_id = @order.id
             order_detail.amount = cart_item.amount
             order_detail.price = cart_item.item.price
@@ -54,16 +54,14 @@ class Public::OrdersController < ApplicationController
             end
         end
         redirect_to public_orders_complete_path
-        cart_items.destroy_all
     end
     # 履歴/public/orders
     def index
-        @order_detail = current_customer.order_detail.all
+        @orders = current_customer.orders.all
     end
     # 詳細/public/orders/:id
     def show
         @order_detail = OrderDetail.find(params[:id])
-        
     end
 
     private
