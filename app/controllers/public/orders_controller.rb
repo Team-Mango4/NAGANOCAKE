@@ -54,14 +54,16 @@ class Public::OrdersController < ApplicationController
             end
         end
         redirect_to public_orders_complete_path
+        cart_items.destroy_all
     end
     # 履歴/public/orders
     def index
-        @orders = current_customer.orders.all
+        @order_detail = current_customer.order_detail.all
     end
     # 詳細/public/orders/:id
     def show
         @order_detail = OrderDetail.find(params[:id])
+        
     end
 
     private
