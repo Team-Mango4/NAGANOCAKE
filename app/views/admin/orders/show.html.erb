@@ -1,28 +1,31 @@
 <h4>注文履歴詳細</h4>
 <div>
   <label>購入者</label>
-  <%= name %>
+  <%= @order.customer.first_name + @order.customer.last_name %>
 </div>
 
 <div>
   <label>注文日</label>
-  <%= date %>
+  <%= @order.updated_at %>
 </div>
 
 <div>
   <label>配送先</label>
-  <%= address %>
+  <%= @order.ship_address %>
 </div>
 
 <div>
   <label>支払い方法</label>
-  <%= payment_method %>
+  <%= @order.payment_method %>
 </div>
 
 <div>
   <label>注文ステータス</label>
-  <%= status %>
+  <%= @order.status %>
+</div>
+
+<div>
+  <%= render 'admin/order_details/show' %>
 </div>
 
 
-<%= render 'order_details/making_status' %>

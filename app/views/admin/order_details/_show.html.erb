@@ -11,13 +11,11 @@
 
   <tbody>
     <tr>
-    <!--% cart_item each do %>-->
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><%= f.select :making_status, [['着手不可',0]['製作待ち',1]['製作中',2]['製作完了',3]] %></td>
+      <td><%= @item.name %></td>
+      <td><%= @item.price %></td>
+      <td><%= @order_detail.amount %></td>
+      <td><%= @order_detail.price %></td>
+      <td><%= @order_detail.making_status %></td>
     </tr>
   </tbody>
 </table>
