@@ -1,16 +1,24 @@
-</h3>配送先編集<h3>
-  
-<%= form_with model: @ship,url: '/public/ships', method: :patch  do |f| %>
+<div class="h3 pb-2 mb-4 text-success border-bottom border-success">
+    <h1>配送先編集</h1>
+</div>
+<div class='container'>
+  <div class='row g-3'>
+    <div class='col-md-6 offset-md-3'>
 
-  <h4>郵便番号（ハイフンなし）</h4>
-  <%= f.text_field :post_code %>
-  
-  <h4>住所</h4>
-  <%= f.text_field :address %>
-  
-  <h4>宛名</h4>
-  <%= f.text_field :name %>
-  
-  <%= f.submit '保存' %>
-  
-<% end %>
+   <%= form_with model: @ship,url: '/public/ships', method: :patch  do |f| %>
+    <div class="col-md-6">
+     <strong>郵便番号(ハイフンなし)</strong>
+      <%= f.text_field :post_code, class: 'form-control border-success' %>
+      </div>
+       <div class="col-md-12">
+        <strong>住所</strong>
+          <%= f.text_field :address, class: 'form-control border-success' %>
+          </div>
+         <div class="col-md-6">
+           <strong>宛名</strong>
+         <%= f.text_field :name, class: 'form-control border-success' %>
+        </div>
+        <div class="col-md">
+        <%= f.submit "変更内容を保存" ,class: "btn  btn-success" %>
+       </div>
+       <% end %>
