@@ -1,25 +1,25 @@
-<table>
-  <thead>
+<table class="table text-center">
+  <thead class="table-success">
     <tr>
-      <th>商品名</th>
-      <th>単価（税込）</th>
-      <th>数量</th>
-      <th>小計</th>
-      <th>製作ステータス</th>
+      <th scope="col">商品名</th>
+      <th scope="col">単価（税込）</th>
+      <th scope="col">数量</th>
+      <th scope="col">小計</th>
+      <th scope="col">製作ステータス</th>
     </tr>
   </thead>
 
   <tbody>
     <% @order_details.each do |order_detail| %>
-    <tr>
+    <tr class='vertical-align: middle' >
       <td><%= order_detail.item.name %></td>
-      <td><%= order_detail.item.with_tax_price %>円</td>
+      <td>&yen;<%= order_detail.item.with_tax_price %></td>
       <td><%= order_detail.amount %></td>
-      <td><%= order_detail.subtotal %>円</td>
+      <td>&yen;<%= order_detail.subtotal %></td>
       <td>
         <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch, local: true do |f|%>
           <%= f.select :making_status, OrderDetail.making_statuses.keys.map{|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]} %>
-          <%= f.submit '更新' %>
+          <%= f.submit '更新', class: 'btn btn-success'%>
         <% end %>
       </td>
     </tr>
