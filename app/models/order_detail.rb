@@ -4,6 +4,6 @@ class OrderDetail < ApplicationRecord
   belongs_to :item
 
   def subtotal
-    price * amount
+    item.with_tax_price * amount
   end
 end
