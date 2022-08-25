@@ -18,7 +18,7 @@ class Admin::SessionsController < Devise::SessionsController
   # end
 
   def after_admin_sign_out_path_for(resource)
-    about_path
+    admin_session_path
   end
 
   # protected

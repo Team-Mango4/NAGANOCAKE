@@ -3,7 +3,11 @@ class OrderDetail < ApplicationRecord
   belongs_to :order
   belongs_to :item
 
+  # order_statusが入金済み（1）になったらmaking_status を製作待ち（１）に自動更新
+
   def subtotal
     item.with_tax_price * amount
   end
+
+
 end

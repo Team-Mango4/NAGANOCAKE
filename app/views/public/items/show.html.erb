@@ -17,7 +17,7 @@
         <div class="col-md-6 offset-md-2">
           <h1><%= @item.name %></h1>
           <h2><%= @item.introduction %></h2>
-          &yen;<%= @item.price %><small class="text-muted">(税込)</small>
+          &yen;<%= @item.with_tax_price %><small class="text-muted">(税込)</small>
         </div>
       </div>
 

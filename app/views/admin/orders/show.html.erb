@@ -6,7 +6,7 @@
 
 <div>
   <label>注文日</label>
-  <%= @order.updated_at %>
+  <%= @order.updated_at.to_date %>
 </div>
 
 <div>
@@ -16,13 +16,13 @@
 
 <div>
   <label>支払い方法</label>
-  <%= @order.payment_method %>
+  <%= @order.payment_method_i18n %>
 </div>
 
 <div>
   <label>注文ステータス</label>
     <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f|%>
-      <%= f.select :status, Order.statuses.keys.to_a %>
+      <%= f.select :status, Order.statuses.keys.map{|k| [I18n.t("enums.order.status.#{k}"), k]} %>
       <%= f.submit '更新' %>
     <% end %>
 </div>
