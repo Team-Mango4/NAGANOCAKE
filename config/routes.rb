@@ -28,8 +28,8 @@ Rails.application.routes.draw do
   namespace :public do
     get "/orders/complete" => "orders#complete"
     post "/orders/confirm" => "orders#confirm"
-    get '/customers/unsubscribe' => 'costomers#unsubscribe', as: 'unsubscribe'
-    patch '/customers/withdraw' => 'costomers#withdraw', as: 'withdraw'
+    get '/customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+    patch '/customers/withdraw' => 'customers#withdraw', as: 'withdraw'
     resources :customers,only: [:index, :show, :edit, :update]
     resources :orders, only:[:new, :index, :show, :create]
     resources :ships, only:[:index, :edit, :create, :update, :destroy]
