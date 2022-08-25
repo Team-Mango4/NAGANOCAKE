@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  
+  #before_action :authenticate_customer!, exept: [:top,]
+
     # ログイン後のリダイレクト先
   def after_sign_in_path_for(resource_or_scope)
     if resource.is_a?(Admin)
@@ -8,7 +9,7 @@ class ApplicationController < ActionController::Base
       root_path
     end
   end
-  
+
   # ログアウト後のリダイレクト先
   def after_sign_out_path_for(resource_or_scope)
     if resource_or_scope == :admin
