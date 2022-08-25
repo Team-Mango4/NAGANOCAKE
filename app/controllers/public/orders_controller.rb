@@ -39,8 +39,7 @@ class Public::OrdersController < ApplicationController
     # 確定
     def create
         cart_items = current_customer.cart_items.all
-        @order = Order.new(order_params)
-        @order.customer_id = current_customer.id
+        @order = current_customer.orders.new(order_params)
         @order.shipping_cost = 800
         @order.status = 0
         if @order.save

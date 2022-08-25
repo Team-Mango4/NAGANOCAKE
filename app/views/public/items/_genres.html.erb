@@ -4,7 +4,7 @@
       </div>
       <ul class="list-group list-group-flush">
         <% genres.each do |genre| %>
-        <li class="list-group-item"><%= genre.name %></li>
+        <li class="list-group-item"><%= link_to genre.name, public_items_path(genre_id: genre.id) %></li>
         <% end %>
       </ul>
       </div>
