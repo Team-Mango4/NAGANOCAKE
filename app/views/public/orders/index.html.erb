@@ -1,14 +1,11 @@
-<div class="container">
-    <div class="row">
-      <div class="col-md-10 offset-md-2">
-        <h3>注文履歴一覧</h3>
-      </div>
-    </div>
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-sm table-bordered">
-        <thead>
-          <tr>
+<div class="h3 pb-2 mb-4 text-success border-bottom border-success">
+    <h1>配送先登録/一覧</h1>
+     </div>
+      <div class="col-md-10 offset-md-1">
+       <div class="row g-3">
+       <table class="table table-bordered">
+         <thead>
+          <tr class="table-success">
             <th>注文日</th>
             <th>配送先</th>
             <th>注文商品</th>
@@ -39,8 +36,7 @@
             </td>
             <td class="align-middle"><%= order.total_payment %></td>
             <td class="align-middle"><%= order.status %></td>
-            <td class="align-middle"><%= link_to "表示する", "/public/orders/#{order.id}" %></td>
-            <%#= link_to "表示する", "/public/orders/#{@order_detail.id}" %>
+            <td class="align-middle"><%= link_to "表示する", "/public/orders/#{order.id}", class: "btn btn-sm btn-primary" %></td>
           </tr>
           </tbody>
         <% end %>
