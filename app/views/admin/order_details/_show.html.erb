@@ -13,7 +13,7 @@
     <% @order_details.each do |order_detail| %>
     <tr>
       <td><%= order_detail.item.name %></td>
-      <td><%= order_detail.item.price %>円</td>
+      <td><%= order_detail.item.with_tax_price %>円</td>
       <td><%= order_detail.amount %></td>
       <td><%= order_detail.subtotal %>円</td>
       <td>
