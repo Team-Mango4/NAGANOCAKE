@@ -62,3 +62,4 @@ gem "net-imap"
 gem "enum_help"
 
 gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
