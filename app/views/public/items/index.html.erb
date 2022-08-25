@@ -4,7 +4,7 @@
 
     <div class="col-md-3">
       <!--ジャンル検索-->
-    <%= render 'public/homes/genres', genres: @genres %>
+    <%= render 'public/items/genres', genres: @genres %>
     </div>
 
 
@@ -36,6 +36,9 @@
         <% end %>
           </div>
       </table>
+
+      <%= paginate @items, theme: 'twitter-bootstrap-4' %>
+
     </div>
 
 
