@@ -30,12 +30,15 @@
               </td>
             </tr>
           <tr>
-            <td>&yen;<%= item.price %> </td>
+            <td>&yen;<%= item.with_tax_price %> </td>
           </tr>
         </tbody>
         <% end %>
           </div>
       </table>
+
+      <%= paginate @items, theme: 'twitter-bootstrap-4' %>
+
     </div>
 
 
