@@ -9,7 +9,8 @@
 
     <div class="col-md-3">
       <div class= "card-body ">
-        <p class="card-text">商品名</p>
+        <p class="card-text">商品名
+        <%= @item.name %></p>
 
         <p class="card-text">商品説明
         <%= @item.introduction %></p>
@@ -17,8 +18,9 @@
         <p class="card-text">ジャンル名
         <%= @genre.name %></p>
 
-        <p class="card-text" >税込価格
-        ¥<%= @item.price %></p>
+        <p class="card-text" >税込価格<br>(税抜価格)
+        &yen;<%= @item.with_tax_price %>（&yen;<%= @item.price%>）</p>
+
 
         <p class="card-text">販売ステータス
         <% if @item.is_active %>
