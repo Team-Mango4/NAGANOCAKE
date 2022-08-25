@@ -4,7 +4,7 @@
 <div class='container'>
   <div class='row g-3'>
     <div class='col-md-6 offset-md-3'>
-    <%= form_with model: @ship, url: '/public/ships', method: :post do |f| %>
+    <%= form_with model: @ship, url: public_ships_path, method: :post do |f| %>
      <div class="col-md-6">
      <strong>郵便番号(ハイフンなし)</strong>
       <%= f.text_field :post_code, class: 'form-control border-success' %>

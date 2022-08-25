@@ -1,5 +1,5 @@
 <div class="h3 pb-2 mb-4 text-success border-bottom border-success">
-    <h1>配送先登録/一覧</h1>
+    <h1>注文履歴一覧</h1>
      </div>
       <div class="col-md-10 offset-md-1">
        <div class="row g-3">
@@ -17,7 +17,7 @@
         <% @orders.each do |order| %>
         <tbody>
           <tr>
-            <td class="align-middle"><%= order.created_at %></td>
+            <td class="align-middle"><%= order.created_at.to_date %></td>
             <td class="align-middle">
               〒<%= order.post_code %></br>
               <%= order.ship_address %></br>
@@ -34,8 +34,8 @@
               <% end %>
               </table>
             </td>
-            <td class="align-middle"><%= order.total_payment %></td>
-            <td class="align-middle"><%= order.status %></td>
+            <td class="align-middle">&yen;<%= order.total_payment %></td>
+            <td class="align-middle"><%= order.status_i18n %></td>
             <td class="align-middle"><%= link_to "表示する", "/public/orders/#{order.id}", class: "btn btn-sm btn-primary" %></td>
           </tr>
           </tbody>
