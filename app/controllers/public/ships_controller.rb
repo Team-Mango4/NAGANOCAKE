@@ -19,7 +19,7 @@ class Public::ShipsController < ApplicationController
   def update
     ship = Ship.find(params[:id])
     ship.update(ship_params)
-    redirect_to '/public/ships'
+    redirect_to public_ships_path
   end
 
   def destroy
