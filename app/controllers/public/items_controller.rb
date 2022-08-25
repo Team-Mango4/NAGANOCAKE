@@ -1,15 +1,17 @@
 class Public::ItemsController < ApplicationController
 
   def index
+    @items = Item.all.page(params[:page]).per(8)
+
     @genres = Genre.all
     # ジャンルのルートページ
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
-      @items = @genre.items.order(created_at: :desc).all
+      @items = @genre.items.order(created_at: :desc).all.page(params[:page]).per(8)
     else
-      @items = Item.order(created_at: :desc).all
+      @items = Item.order(created_at: :desc).all.page(params[:page]).per(8)
     end
-    
+
   end
 
   def show

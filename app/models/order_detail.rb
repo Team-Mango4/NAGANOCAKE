@@ -3,6 +3,7 @@ class OrderDetail < ApplicationRecord
   belongs_to :order
   belongs_to :item
 
+  #税込み小計を求めるためのメソッドを使用
   def subtotal
     item.with_tax_price * amount
   end
