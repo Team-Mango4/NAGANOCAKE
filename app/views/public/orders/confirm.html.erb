@@ -28,7 +28,7 @@
     <div class="col-md-3 offset-me-1">
       <table class="table table-bordered">
         <thead>
-          <tr class="py-5">
+          <tr>
             <th scope="col">送料</th>
             <th scope="col">商品合計</th>
             <th scope="col">請求金額</th>
@@ -37,9 +37,15 @@
         <% @cart_items.each do |cart_item| %>
         <tbody>
           <tr>
+            <th scope="col">送料</th>
             <td><%= @shipping_cost %></td>
+          </tr>
+          <tr>
+            <th scope="col">商品合計</th>
             <% @total += cart_item.subtotal %>
             <td><%= @total %></td>
+          </tr>
+          <tr>
             <% @total_payment = @total + @shipping_cost %>
             <td><%= @total_payment %></td>
           </tr>

@@ -1,32 +1,69 @@
 <h2>注文履歴詳細</h2>
 
-<!--注文情報-->
-<h2>注文日</h2>
-<p><%= @order_details.created_at %></p>
-<h2>配送先</h2>
-<span>
-  <%= @order_details.post_code %><br>
-  <%= @order_details.ship_address %><br>
-  <%= @order_details.name %>
-</span>
-<h2>支払い方法</h2>
-<p><%= @order_details.payment_method %></p>
-<h2>ステータス</h2>
-<p><%= @order_details.status %></p>
-<!--注文内容-->
-<h2>商品</h2>
-<p><%= @order_details.item_id %></p>
-<h2>単価（税込）</h2>
-<p><%= @order_details.price %></p>
-<h2>個数</h2>
-<p><%= @order_details.amount %></p>
-<h2>小計</h2>
-<p><%= @order_details.price %></p>
-<!--請求情報-->
-<h2>商品合計</h2>
-<p><%= @order_detail.price %></p>
-<h2>配送料</h2>
-<p><%= @order_details.shipping_cost %></p>
-<h2>ご請求額</h2>
-<p><%= @order_details.total_payment %></p>
+<div class="container">
 
+
+  <div class="row">
+
+    <!--注文情報-->
+    <div class="col-md-6">
+      <table class="table table-bordered ">
+          <tr><th class="table-active">注文日</th><td><%= @order.created_at %></td></tr>
+          <tr>
+            <th class="table-active">配送先</th>
+            <td>
+              <%= @order.post_code %><br>
+              <%= @order.ship_address %><br>
+              <%= @order.name %>
+            </td>
+          </tr>
+          <tr><th class="table-active">支払い方法</th><td><%= @order.payment_method %></td></tr>
+          <tr><th class="table-active">ステータス</th><td><%= @order.status %></td></tr>
+      </table>
+    </div>
+
+    <!--請求情報-->
+    <div class="col-md-3">
+      <h2>商品合計</h2>
+      <% @order_subtotol = @order.total_payment - @order.shipping_cost %>
+      <p><%= @order_subtotol %></p>
+      <h2>配送料</h2>
+      <p><%= @order.shipping_cost %></p>
+      <h2>ご請求額</h2>
+      <p><%= @order.total_payment %></p>
+    </div>
+
+  </div>
+
+
+  <div class="row">
+    <!--注文内容-->
+    <div class="col-md-6">
+      <table class="table table-bordered ">
+        <thead>
+          <tr>
+            <th>商品</th>
+            <th>単価（税込）</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <% @order.order_details.each do |order_detail| %>
+        <tbody>
+          <tr>
+            <td><%= order_detail.item.name %></td>
+            <!--itemモデル記載の税込みを求めるためのメソッドを使用-->
+            <td><%= order_detail.item.with_tax_price %></td>
+            <td><%= order_detail.amount %></td>
+            <!--order_detailモデル記載の小計を求めるためのメソッドを使用-->
+            <td><%= order_detail.subtotal %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+
+  </div>
+
+
+</div>

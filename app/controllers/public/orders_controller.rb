@@ -44,12 +44,12 @@ class Public::OrdersController < ApplicationController
         @order.status = 0
         if @order.save
             cart_items.each do |cart_item|
-            order_detail = OrderDetail.new
-            order_detail.item_id = cart_item.item_id
-            order_detail.order_id = @order.id
-            order_detail.amount = cart_item.amount
-            order_detail.price = cart_item.item.price
-            order_detail.save
+              order_detail = OrderDetail.new
+              order_detail.item_id = cart_item.item_id
+              order_detail.order_id = @order.id
+              order_detail.amount = cart_item.amount
+              order_detail.price = cart_item.item.price
+              order_detail.save
             end
         end
         redirect_to public_orders_complete_path
@@ -57,12 +57,13 @@ class Public::OrdersController < ApplicationController
     end
     # 履歴/public/orders
     def index
-        @order_detail = current_customer.order_detail.all
+        @orders = current_customer.orders.all
     end
     # 詳細/public/orders/:id
     def show
-        @order_detail = OrderDetail.find(params[:id])
-
+        @order = Order.find(params[:id])
+        #@order_detail = OrderDetail.find(params[:id])
+        @order_subtotol = 0
     end
 
     private
@@ -70,4 +71,5 @@ class Public::OrdersController < ApplicationController
     def order_params
         params.require(:order).permit(:payment_method, :post_code, :ship_address, :name, :shipping_cost, :status, :total_payment)
     end
+
 end
