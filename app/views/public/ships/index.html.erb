@@ -17,22 +17,21 @@
            <strong>宛名</strong>
          <%= f.text_field :name, class: 'form-control border-success' %>
         </div>
-        <div class="col-md">
+        <div class="d-md-flex justify-content-md-end">
         <%= f.submit "新規登録" ,class: "btn  btn-success" %>
        </div>
        <% end %>
-<% @ships.each do |ship| %>
  <table class="table table-bordered">
-  <thead>
+
   <tr class="table-success">
    <th>郵便番号</th>
    <th>住所</th>
    <th>宛名</th>
    <th></th>
   </tr>
-  </thead>
-  </div>
-   <tbody>
+
+  <% @ships.each do |ship| %>
+
     <tr>
     <td><%= ship.post_code %></td>
     <td><%= ship.address %></td>
@@ -42,6 +41,8 @@
     <%= link_to "削除する", "/public/ships/#{ship.id}", method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>
     </td>
    </tr>
-   </tbody>
-   </table>
 <% end %>
+   </table>
+   </div>
+   </div>
+   </div>
