@@ -17,21 +17,33 @@
            <strong>宛名</strong>
          <%= f.text_field :name, class: 'form-control border-success' %>
         </div>
-        <div class="actions">
-        <%= f.submit "新規登録" ,class: "btn btn-success" %>
+        <div class="col-md">
+        <%= f.submit "新規登録" ,class: "btn  btn-success" %>
        </div>
+       <% end %>
 
-<% end %>
 
-一覧
 <% @ships.each do |ship| %>
-
-  <p>郵便番号</p>
-  <span><%= ship.post_code %></span>
-  <p>住所</p>
-  <span><%= ship.address %></span>
-  <p>宛名</p>
-  <span><%= ship.name %></span>
-  <%= link_to "編集する", edit_public_ship_path(ship.id) %>
-  <%= link_to "削除", "/public/ships/#{ship.id}", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+ <table class="table table-bordered">
+  <thead>
+  <tr class="table-success">
+   <th><strong>郵便番号</strong></th>
+   <th><strong>住所</strong></th>
+   <th><strong>宛名</strong></th>
+   <th></th>
+  </tr>
+  </thead>
+  </div>
+   <tbody>
+    <tr>
+    <td><%= ship.post_code %></td>
+    <td><%= ship.address %></td>
+    <td><%= ship.name %></td>
+    <td>
+    <%= link_to "編集する", edit_public_ship_path(ship.id), class: "btn btn-sm btn-success" %>
+    <%= link_to "削除する", "/public/ships/#{ship.id}", method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>
+    </td>
+   </tr>
+   </tbody>
+   </table>
 <% end %>
