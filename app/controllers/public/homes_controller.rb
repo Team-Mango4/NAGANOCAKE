@@ -5,6 +5,7 @@ class Public::HomesController < ApplicationController
   end
 
   def about
+    @items = Item.all
   end
 
 end
