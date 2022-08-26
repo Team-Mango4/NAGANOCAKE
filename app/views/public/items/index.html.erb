@@ -30,7 +30,7 @@
               </td>
             </tr>
           <tr>
-            <td>&yen;<%= item.with_tax_price %> </td>
+            <td>&yen;<%= item.with_tax_price.to_s(:delimited) %> </td>
           </tr>
         </tbody>
         <% end %>

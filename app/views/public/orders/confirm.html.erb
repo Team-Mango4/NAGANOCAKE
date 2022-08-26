@@ -1,10 +1,15 @@
-<h3>注文情報確認</h3>
 <div class="container">
- <div class="row">
+  <div class="row justify-content-between">
+    <div class="col-mb-4">
+      <strong class="h4 text-secondary">注文情報確認</strong>
+    </div>
+  </div>
+  <br>
 
+  <div class = "row">
     <div class="col-md-8">
-      <table class="table table-bordered">
-        <thead>
+      <table class="table table-bordered  text-center">
+        <thead class="table-success">
           <tr>
             <th scope="col">商品名</th>
             <th scope="col">単価（税込）</th>
@@ -13,19 +18,19 @@
           </tr>
         </thead>
         <% @cart_items.each do |cart_item| %>
-        <tbody>
+        <tbody >
           <tr>
             <td><%= image_tag cart_item.item.image, size: "50x50" %><%= cart_item.item.name %></td>
-            <td>&yen;<%= cart_item.item.with_tax_price %></td>
-            <td><%= cart_item.amount %></td>
-            <td><%= cart_item.subtotal %></td>
+            <td  class = "align-middle">&yen;<%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
+            <td  class = "align-middle"><%= cart_item.amount %></td>
+            <td  class = "align-middle">&yen;<%= cart_item.subtotal.to_s(:delimited) %></td>
           </tr>
         </tbody>
         <% end %>
       </table>
     </div>
 
-    <div class="col-md-3 offset-me-1">
+    <div class="col-md-3">
       <table class="table table-bordered">
         <% @cart_items.each do |cart_item| %>
           <% @total += cart_item.subtotal %>
@@ -33,16 +38,16 @@
         <% end %>
         <tbody>
           <tr>
-            <th scope="col">送料</th>
-            <td><%= @shipping_cost %></td>
+            <th scope="col", class = "table-success">送料</th>
+            <td>&yen;<%= @shipping_cost.to_s(:delimited) %></td>
           </tr>
           <tr>
-            <th scope="col">商品合計</th>
-            <td><%= @total %></td>
+            <th scope="col", class = "table-success">商品合計</th>
+            <td>&yen;<%= @total.to_s(:delimited) %></td>
           </tr>
           <tr>
-            <th scope="col">請求金額</th>
-            <td><%= @total_payment %></td>
+            <th scope="col", class = "table-success">請求金額</th>
+            <td>&yen;<%= @total_payment.to_s(:delimited) %></td>
           </tr>
         </tbody>
       </table>
@@ -50,28 +55,37 @@
   </div>
 
   <div class="row">
-    <storng><h5>支払い方法</h5></storng>
-    <%= @order.payment_method_i18n %>
+    <div class "col">
+      <table class= "table table-borderless">
+        <tbody>
+          <tr>
+            <th>支払い方法</th>
+            <td><%= @order.payment_method_i18n %></td>
+          </tr>
+          <tr>
+            <th>お届け先</th>
+            <td>〒<%= @order.post_code %> <%= @order.ship_address %><br>
+             <%= @order.name %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
-  <div class="row">
-    <h3>お届け先</h3>
-    <%= @order.name %>
-    <%= @order.post_code %>
-    <%= @order.ship_address %>
+  <br>
+    <div class = "row justify-content-center">
+      <!--送信-->
+      <%= form_with model: @order, url: '/public/orders', method: :post do |f| %>
+        <%= f.hidden_field :payment_method %>
+        <%= f.hidden_field :name %>
+        <%= f.hidden_field :post_code %>
+        <%= f.hidden_field :ship_address %>
+        <%= f.hidden_field :shipping_cost %>
+        <%= f.hidden_field :status %>
+        <%= f.hidden_field :total_payment, :value => @total_payment %>
+
+      <%= f.submit "注文を確定する", class: "btn btn-success btn-lg" %>
+      <% end %>
+    </div>
   </div>
-
-<div class="row">
-<!--送信-->
-<%= form_with model: @order, url: '/public/orders', method: :post do |f| %>
-  <%= f.hidden_field :payment_method %>
-  <%= f.hidden_field :name %>
-  <%= f.hidden_field :post_code %>
-  <%= f.hidden_field :ship_address %>
-  <%= f.hidden_field :shipping_cost %>
-  <%= f.hidden_field :status %>
-  <%= f.hidden_field :total_payment, :value => @total_payment %>
-
-<%= f.submit "注文を確定する" %>
-<% end %>
 </div>

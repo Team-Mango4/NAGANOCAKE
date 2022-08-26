@@ -24,8 +24,8 @@
           </tr>
           <tr>
             <th>税込価格<br>(税抜価格)</th>
-            <td>&yen;<%= @item.with_tax_price %><br>
-            (&yen;<%= @item.price%>）</td>
+            <td>&yen;<%= @item.with_tax_price.to_s(:delimited) %><br>
+            (&yen;<%= @item.price.to_s(:delimited)%>）</td>
           </tr>
           <tr>
             <th>販売ステータス</th>
