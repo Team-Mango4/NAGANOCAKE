@@ -3,11 +3,13 @@
 </div>
 <div class='container'>
   <div class='row g-3'>
-    <div class='col-md-6 offset-md-3'>
+    <div class='col-md-7 offset-md-2'>
    <table class="table table-bordered">
      <div class="form-inline">
-     <h5><strong>会員情報   </strong></h5>
+     <h5><strong>会員情報</strong></h5>
+     <div class="ml-4 mb-2">
      <%= link_to "編集する","/public/customers/#{@customer.id}/edit" , class: "btn btn-sm btn-success" %>
+     </div>
      </div>
       <tbody>
         <tr>
@@ -37,12 +39,16 @@
       </tbody>
       </table>
          <div class="form-inline">
-        <h5><strong>配送先   </strong></h5>
+        <h5><strong>配送先</strong></h5>
+        <div class="ml-4 mb-2">
         <%= link_to "一覧を見る", public_ships_path, class: "btn btn-sm btn-primary" %>
+        </div>
       </div>
-      <div class="form-inline">
-        <h5><strong>購入履歴   </strong></h5>
+      <div class="form-inline mt-3">
+        <h5><strong>購入履歴</strong></h5>
+          <div class="ml-4 mb-2">
          <%= link_to "一覧を見る", public_orders_path, class: "btn btn-sm  btn-primary" %>
+         </div>
       </div>
        </div>
       </div>
