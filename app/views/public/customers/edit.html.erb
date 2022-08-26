@@ -5,35 +5,33 @@
   <div class='row g-3'>
     <div class='col-md-6 offset-md-3'>
       <%= form_with model: @customer, url: "/public/customers/#{@customer.id}", method: :patch  do |f| %>
-      <div class="form-group ">
-        <%= f.label :first_name,"氏名",class: "text-success" %>
-        <%= f.text_field :first_name, class: "form-control" %><%= f.text_field :last_name, class: "form-control" %>
+      <div class="form-group col-6">
+       <strong>氏名</strong>
+        <%= f.text_field :first_name, class: "form-control border-success" %><%= f.text_field :last_name, class: "form-control border-success" %>
       </div>
-      <div class="form-group ">
-        <%= f.label :first_name_kana,"フリガナ",class: "text-success" %>
-        <%= f.text_field :first_name_kana, class: "form-control" %><%= f.text_field :last_name_kana, class: "form-control" %>
+      <div class="form-group col-6 ">
+        <strong>フリガナ</strong>
+        <%= f.text_field :first_name_kana, class: "form-control border-success" %><%= f.text_field :last_name_kana, class: "form-control border-success" %>
       </div>
-      <div class="form-group ">
-        <%= f.label :post_code,"郵便番号",class: "text-success" %>
-        <%= f.text_field :post_code, class: "form-control" %>
+      <div class="form-group col-6">
+       <strong>郵便番号</strong>
+        <%= f.text_field :post_code, class: "form-control border-success" %>
       </div>
-      <div class="form-group ">
-        <%= f.label :address,"住所",class: "text-success" %>
-        <%= f.text_field :address, class: "form-control" %>
+      <div class="form-group col-12">
+       <strong>住所</strong>
+        <%= f.text_field :address, class: "form-control border-success" %>
       </div>
-      <div class="form-group ">
-        <%= f.label :telephone_number,"電話番号",class: "text-success" %>
-        <%= f.text_field :telephone_number, class: "form-control" %>
+      <div class="form-group col-6 ">
+     <strong>電話番号</strong>
+        <%= f.text_field :telephone_number, class: "form-control border-success" %>
       </div>
-      <div class="form-group ">
-        <%= f.label :email,"メールアドレス",class: "text-success" %>
-        <%= f.text_field :email, class: "form-control" %>
+      <div class="form-group col-12">
+       <strong>メールアドレス</strong>
+        <%= f.text_field :email, class: "form-control border-success" %>
       </div>
       <div class="text-right">
         <button type="submit" class="btn btn-success">編集内容を保存</button>
-      </div>
-      <div>
-      <%= link_to "退会する", "/public/customers/unsubscribe", class: "btn btn-danger"  %>
+         <%= link_to "退会する", "/public/customers/unsubscribe", class: "btn btn-danger"  %>
       </div>
       <% end %>
     </div>
