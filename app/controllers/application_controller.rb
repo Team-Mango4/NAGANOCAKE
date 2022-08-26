@@ -1,5 +1,17 @@
 class ApplicationController < ActionController::Base
-  
+
+  before_action :authenticate_admin!, if: :admin_url
+  before_action :authenticate_customer!, if: :public_url, except: [:index]
+
+  def admin_url
+    request.fullpath.include?("/admin")
+  end
+
+  def public_url
+    request.path.include?("/public")
+  end
+
+
     # ログイン後のリダイレクト先
   def after_sign_in_path_for(resource_or_scope)
     if resource.is_a?(Admin)
@@ -8,7 +20,7 @@ class ApplicationController < ActionController::Base
       root_path
     end
   end
-  
+
   # ログアウト後のリダイレクト先
   def after_sign_out_path_for(resource_or_scope)
     if resource_or_scope == :admin
@@ -17,4 +29,6 @@ class ApplicationController < ActionController::Base
       root_path
     end
   end
+
+
 end

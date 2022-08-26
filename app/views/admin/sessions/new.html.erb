@@ -5,6 +5,7 @@
   <div class='row g-3'>
     <div class='col-md-6 offset-md-3'>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
       <div class="field">
         <%= f.label :email,"メールアドレス",class: "h5 text-success" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control border-success' %>

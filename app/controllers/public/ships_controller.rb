@@ -1,8 +1,8 @@
 class Public::ShipsController < ApplicationController
 
   def index
+    @ships = current_customer.ships
     @ship = Ship.new
-    @ships = Ship.all
   end
 
   def create
