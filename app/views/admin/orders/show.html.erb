@@ -44,19 +44,19 @@
       <table class="table table-bordered">
         <tbody>
           <tr>
-            <th scope="col">商品合計</th>
+            <th scope="col", class= "table success">商品合計</th>
             <% @order_details.each do |order_detail| %>
               <% @subtotal += order_detail.subtotal %>
             <% end %>
-            <td>&yen;<%= @subtotal %></td>
+            <td>&yen;<%= @subtotal.to_s(:delimited) %></td>
           </tr>
           <tr>
-            <th scope="col">送料</th>
+            <th scope="col", class= "table success">送料</th>
             <td>&yen;<%= @order.shipping_cost %></td>
           </tr>
           <tr>
-            <th scope="col">請求金額</th>
-            <td>&yen;<%= @order.total_payment %></td>
+            <th scope="col", class= "table success">請求金額</th>
+            <td>&yen;<%= @order.total_payment.to_s(:delimited) %></td>
           </tr>
         </tbody>
       </table>

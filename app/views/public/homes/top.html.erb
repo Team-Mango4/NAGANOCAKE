@@ -18,7 +18,7 @@
         <%= image_tag item.image, size: "250x200" ,class:"card-img-top"%>
         <div class="card-body text-center">
         <h4 class="card-title"></h4>
-        <p class="card-text"><%= item.name %>&yen;<%= item.price %></p>
+        <p class="card-text"><%= item.name %>&yen;<%= item.price.to_s(:delimited) %></p>
         </div>
         <% end %>
         </div>
