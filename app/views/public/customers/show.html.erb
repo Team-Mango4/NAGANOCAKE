@@ -1,4 +1,4 @@
-<div class="h3 pb-2 mb-4 text-success border-bottom border-success">
+<div class="h3 pb-2 mb-4 text-warning border-bottom border-warning">
     マイページ
 </div>
 <div class='container'>
@@ -8,32 +8,32 @@
      <div class="form-inline">
      <h5><strong>会員情報</strong></h5>
      <div class="ml-4 mb-2">
-     <%= link_to "編集する","/public/customers/#{@customer.id}/edit" , class: "btn btn-sm btn-success" %>
+     <%= link_to "編集する","/public/customers/#{@customer.id}/edit" , class: "btn btn-sm btn-warning" %>
      </div>
      </div>
       <tbody>
         <tr>
-          <td class="table-success border-light"><strong>氏名</strong></td>
+          <td class="table-warning border-light"><strong>氏名</strong></td>
           <td><%= @customer.first_name %><%= @customer.last_name %></td>
         </tr>
         <tr>
-          <td class="table-success border-light"><strong>フリガナ</strong></td>
+          <td class="table-warning border-light"><strong>フリガナ</strong></td>
           <td><%= @customer.first_name_kana %><%= @customer.last_name_kana %></td>
         </tr>
         <tr>
-          <td class="table-success border-light"><strong>郵便番号</strong></td>
+          <td class="table-warning border-light"><strong>郵便番号</strong></td>
           <td><%= @customer.post_code %></td>
         </tr>
         <tr>
-          <td class="table-success border-light"><strong>住所</strong></td>
+          <td class="table-warning border-light"><strong>住所</strong></td>
           <td><%= @customer.address %></td>
         </tr>
         <tr>
-          <td class="table-success border-light"><strong>電話番号</strong></td>
+          <td class="table-warning border-light"><strong>電話番号</strong></td>
           <td><%= @customer.telephone_number %></td>
         </tr>
         <tr>
-          <td class="table-success border-light"><strong>メールアドレス</strong></td>
+          <td class="table-warning border-light"><strong>メールアドレス</strong></td>
           <td><%= @customer.email %></td>
         </tr>
       </tbody>

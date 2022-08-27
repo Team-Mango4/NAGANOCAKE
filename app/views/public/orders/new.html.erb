@@ -1,5 +1,5 @@
 <%= form_with model: @order, url: '/public/orders/confirm', method: :post do |f| %>
-<div class="h3 pb-2 mb-4 text-success border-bottom border-success">
+<div class="h3 pb-2 mb-4 text-warning border-bottom border-warning">
     注文情報入力
 </div>
 <div class='container'>
@@ -35,15 +35,15 @@
   </div>
   <div class="col-md-6">
   <strong>郵便番号(ハイフンなし)</strong>
-   <%= f.text_field :post_code, class: 'form-control border-success' %>
+   <%= f.text_field :post_code, class: 'form-control border-warning' %>
   </div>
 <div class="col-md-12">
   <strong>住所</strong>
-  <%= f.text_field :ship_address , class: 'form-control border-success' %>
+  <%= f.text_field :ship_address , class: 'form-control border-warning' %>
   </div>
   <div class="col-md-6">
     <strong>宛名</strong>
-  <%= f.text_field :name, class: 'form-control border-success' %>
+  <%= f.text_field :name, class: 'form-control border-warning' %>
   </div>
 <div class="d-grid gap-2 col-6 mt-3  mx-auto">
   <%= f.submit '確認画面へ進む', class: "btn btn btn-primary" %>
