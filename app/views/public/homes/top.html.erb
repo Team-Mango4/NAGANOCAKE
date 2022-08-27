@@ -1,31 +1,55 @@
-<div class="container text-center">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-4">
-      <!--ジャンル一覧-->
-    <%= render 'public/items/genres', genres: @genres %>
+    <!--ジャンル一覧-->
+    <div class="col-md-3 pl-5">
+      <%= render 'public/items/genres', genres: @genres %>
     </div>
-    <div class="col-8">
-    <h1>ようこそ長野Cakeへ</h1> </div>
+
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-10 offset-md-2 my-5" style="font-size: 22px; font-family: serif; font-weight: bold;">
+          <p>
+            ようこそ、長野CAKEへ！</br>
+            このサイトは、ケーキ販売のECサイトになります。</br>
+            会員でない方も商品の閲覧はできますが、</br>
+            購入には会員登録が必要になります。
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="mb-3 pl-2"><span style="font-weight: bold">新着商品</span></h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 d-flex">
+          <% @items.first(4).each do |item| %>
+            <%= link_to "/public/items/#{item.id}" do %>
+              <div class="card mx-2" style="width: 250px; height:150;">
+                <%= image_tag item.image, class:"card-img-top"%>
+                <div class="card-body text-center">
+                  <h4 class="card-title"></h4>
+                  <p class="card-text"><%= item.name %>&yen;<%= item.price %></p>
+                </div>
+              </div>
+            <% end %>
+          <%end%>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2 offset-md-10 mt-3">
+          <%= link_to "全ての商品を見る＞", "/public/items"%>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </div>
 
-  <div>
-  <h4>新着商品欄</h4>
-    <% @items.each do |item| %>
-      <%= link_to "/public/items/#{item.id}" do %>
-      <div class="col-md-4">
-        <div class="card">
-        <%= image_tag item.image, size: "250x200" ,class:"card-img-top"%>
-        <div class="card-body text-center">
-        <h4 class="card-title"></h4>
-        <p class="card-text"><%= item.name %>&yen;<%= item.price.to_s(:delimited) %></p>
-        </div>
-        <% end %>
-        </div>
-      </div>
-    <%end%>
-    </div>
 
-<div class="text-right">
-  <%= link_to "全ての商品を見る＞", "/public/items"%>
-</div>
+
+
