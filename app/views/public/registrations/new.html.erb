@@ -1,68 +1,69 @@
-<div class="h3 pb-2 mb-4 text-success border-bottom border-success">
-  <h1>新規会員登録</h1>
+<div class="h3 pb-2 mb-4 text-warning border-bottom border-warning">
+  新規会員登録
 </div>
 <div class='container'>
   <div class='row'>
     <div class='col-md-6 offset-md-3'>
 　　　<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   　　　　<%= render "public/shared/error_messages", resource: resource %>
-      <div class="col-6">
-        (姓)
-        <%= f.text_field :first_name, autocomplete: "first_name" ,class: 'form-control border-success' %>
+      <div class="col-6 ">
+        <strong>姓</strong>
+        <%= f.text_field :first_name, autocomplete: "first_name" ,class: 'form-control border-warning' %>
       </div>
 
       <div class="col-6">
-        (名)
-        <%= f.text_field :last_name, autocomplete: "last_name" ,class: 'form-control border-success' %>
+        <strong>名</strong>
+        <%= f.text_field :last_name, autocomplete: "last_name" ,class: 'form-control border-warning' %>
       </div>
 
       <div class="col-md-6">
-      （セイ）
-        <%= f.text_field :first_name_kana, autocomplete: "first_name_kana" ,class: 'form-control border-success' %>
+      <strong>セイ</strong>
+        <%= f.text_field :first_name_kana, autocomplete: "first_name_kana" ,class: 'form-control border-warning' %>
       </div>
 
       <div class="col-md-6">
-      （メイ）
-        <%= f.text_field :last_name_kana, autocomplete: "last_name_kana" ,class: 'form-control border-success' %>
+      <strong>メイ</strong>
+        <%= f.text_field :last_name_kana, autocomplete: "last_name_kana" ,class: 'form-control border-warning' %>
       </div>
 
       <div class="col-md-12">
-        メールアドレス
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: 'form-control border-success' %>
+       <strong>メールアドレス</strong>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: 'form-control border-warning' %>
       </div>
 
       <div class="col-md-12">
-        郵便番号（ハイフンなし）
-        <%= f.text_field :post_code, autocomplete: "post_code" ,class: 'form-control border-success' %>
+    <strong>郵便番号(ハイフンなし)</strong>
+        <%= f.text_field :post_code, autocomplete: "post_code" ,class: 'form-control border-warning' %>
       </div>
 
       <div class="col-md-12">
-        住所<br>
-        <%= f.text_field :address, autocomplete: "address" ,class: 'form-control border-success' %>
+        <strong>住所</strong>
+        <%= f.text_field :address, autocomplete: "address" ,class: 'form-control border-warning' %>
       </div>
 
-      <div class="col-md-6">
-        電話番号<br>
-        <%= f.text_field :telephone_number, autocomplete: "telephone_number" ,class: 'form-control border-success' %>
+      <div class="col-md-6 form-inline">
+       <strong>電話番号</strong>
+        <%= f.text_field :telephone_number, autocomplete: "telephone_number" ,class: 'form-control border-warning' %>
       </div>
 
-      <div class="col-md-6">
-        パスワード
+      <div class="col-md-6 form-inline">
+        <strong>パスワード</strong>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <strong>(<%= @minimum_password_length %> 文字以上)</strong>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" ,class: 'form-control border-success' %>
+        <%= f.password_field :password, autocomplete: "new-password" ,class: 'form-control border-warning' %>
       </div>
 
-      <div class="col-md-6">
-        パスワード確認
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: 'form-control border-success' %>
+      <div class="col-md-6 form-inline">
+        <strong>パスワード確認</strong>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: 'form-control border-warning' %>
       </div>
 
-      <div>
-        <%= f.submit "登録" ,class: "btn btn-success" %>
+      <div class="mt-3 ml-3">
+        <%= f.submit "登録" ,class: "btn btn-warning" %>
+        <strong>すでに会員の方は</strong>　<%= link_to "こちら",  new_customer_session_path %>
       </div>
     <% end %>
     </div>
-　<%= render "public/shared/links" %>
+
 

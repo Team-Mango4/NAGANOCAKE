@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  get 'finders/finder'
   # 顧客用
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
     post "/orders/confirm" => "orders#confirm"
     get '/customers/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
     patch '/customers/withdraw' => 'customers#withdraw', as: 'withdraw'
+    get 'finder' => "finders#finder"
     resources :customers,only: [:index, :show, :edit, :update]
     resources :orders, only:[:new, :index, :show, :create]
     resources :ships, only:[:index, :edit, :create, :update, :destroy]

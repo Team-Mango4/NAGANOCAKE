@@ -9,7 +9,7 @@
   <div class = "row">
     <div class="col-md-8">
       <table class="table table-bordered  text-center">
-        <thead class="table-success">
+        <thead class="table-warning">
           <tr>
             <th scope="col">商品名</th>
             <th scope="col">単価（税込）</th>
@@ -38,15 +38,15 @@
         <% end %>
         <tbody>
           <tr>
-            <th scope="col", class = "table-success">送料</th>
+            <th scope="col", class = "table-warning">送料</th>
             <td>&yen;<%= @shipping_cost.to_s(:delimited) %></td>
           </tr>
           <tr>
-            <th scope="col", class = "table-success">商品合計</th>
+            <th scope="col", class = "table-warning">商品合計</th>
             <td>&yen;<%= @total.to_s(:delimited) %></td>
           </tr>
           <tr>
-            <th scope="col", class = "table-success">請求金額</th>
+            <th scope="col", class = "table-warning">請求金額</th>
             <td>&yen;<%= @total_payment.to_s(:delimited) %></td>
           </tr>
         </tbody>
@@ -59,11 +59,11 @@
       <table class= "table table-borderless">
         <tbody>
           <tr>
-            <th>支払い方法</th>
+            <th>支払い方法:</th>
             <td><%= @order.payment_method_i18n %></td>
           </tr>
           <tr>
-            <th>お届け先</th>
+            <th>お届け先:</th>
             <td>〒<%= @order.post_code %> <%= @order.ship_address %><br>
              <%= @order.name %></td>
           </tr>
@@ -84,7 +84,7 @@
         <%= f.hidden_field :status %>
         <%= f.hidden_field :total_payment, :value => @total_payment %>
 
-      <%= f.submit "注文を確定する", class: "btn btn-success btn-lg" %>
+      <%= f.submit "注文を確定する", class: "btn btn-primary btn-lg" %>
       <% end %>
     </div>
   </div>
