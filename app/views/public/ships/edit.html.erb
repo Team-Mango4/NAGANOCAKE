@@ -1,4 +1,4 @@
-<div class="h3 pb-2 mb-4 text-success border-bottom border-success">
+<div class="h3 pb-2 mb-4 text-warning border-bottom border-warning">
     配送先編集
 </div>
 <div class='container'>
@@ -8,17 +8,17 @@
    <%= form_with model: @ship, url: public_ship_path(@ship.id), method: :patch do |f| %>
     <div class="col-md-6">
      <strong>郵便番号(ハイフンなし)</strong>
-      <%= f.text_field :post_code, class: 'form-control border-success' %>
+      <%= f.text_field :post_code, class: 'form-control border-warning' %>
       </div>
        <div class="col-md-12">
         <strong>住所</strong>
-          <%= f.text_field :address, class: 'form-control border-success' %>
+          <%= f.text_field :address, class: 'form-control border-warning' %>
           </div>
          <div class="col-md-6">
            <strong>宛名</strong>
-         <%= f.text_field :name, class: 'form-control border-success' %>
+         <%= f.text_field :name, class: 'form-control border-warning' %>
         </div>
-        <div class="col-md ">
-        <%= f.submit "変更内容を保存" ,class: "btn  btn-success mt-3" %>
+        <div class="col-md">
+        <%= f.submit "変更内容を保存" ,class: "btn  btn-warning mt-3" %>
        </div>
        <% end %>
