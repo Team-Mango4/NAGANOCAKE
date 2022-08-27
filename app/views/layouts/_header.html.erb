@@ -12,32 +12,33 @@
         <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
           <li>
-            <%= link_to  public_customer_path(current_customer), class: 'nav-link text-white' do %>
-             <i class="fas fa-home"></i>マイページ
-             <% end %>
-          </li>
-          <li>
-            <%= link_to public_items_path, class: 'nav-link text-white' do %>
-            	<i class="fas fa-birthday-cake"></i>商品一覧
+            <%= link_to public_customer_path(current_customer), class: 'nav-link text-light' do %>
+              <p><i class="fas fa-home"></i> マイページ</p>
             <% end %>
           </li>
           <li>
-            <%= link_to public_cart_items_path, class: 'nav-link text-white' do %>
-            <i class="fas fa-shopping-cart"></i>カート
+            <%= link_to public_items_path, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-store"></i> 商品一覧</p>
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-white' do %>
-             <i class="fas fa-sign-out-alt"></i>ログアウト
-             <% end %>
+            <%= link_to public_cart_items_path, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-shopping-cart"></i> カート</p>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-sign-out-alt"></i> ログアウト</p>
+            <% end %>
           </li>
           <li>
             <!--検索窓の姿のみ表示-->
-            <div class="input-group">
-              <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワードを入力"></input>
-              <span class="input-group-btn input-group-append">
-                <submit type="submit" id="btn-search" class="btn btn-warning"><i class="fas fa-search"></i> 検索</submit>
-              </span>
+            <div class="find_form">
+              <%= form_with url: public_finder_path, local: true, method: :get do |f| %>
+                <%= f.text_field :word %>
+                <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"], ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
+                <%= f.submit "検索", class: "btn btn-primary" %>
+              <% end %>
             </div>
 
           </li>
@@ -62,19 +63,29 @@
 
         <% else %>
           <li>
-            <%= link_to "About", about_path, class: 'nav-link text-white' %>
+            <%= link_to about_path, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-link"></i> アバウト</p>
+            <% end %>
           </li>
           <li>
-            <%= link_to '商品一覧', public_items_path, class: 'nav-link text-white' %>
+            <%= link_to public_items_path, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-store"></i> 商品一覧</p>
+            <% end %>
           </li>
           <li>
-            <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-white'%>
+            <%= link_to new_customer_registration_path, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-user-plus"></i> 新規登録</p>
+            <% end %>
           </li>
           <li>
-            <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-white' %>
+            <%= link_to new_customer_session_path, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-sign-in-alt"></i> ログイン</p>
+            <% end %>
           </li>
           <li>
-            <%= link_to "管理者ログイン", new_admin_session_path, class: 'nav-link text-white' %>
+            <%= link_to new_admin_session_path, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-lock"></i> 管理者ログイン</p>
+            <% end %>
           </li>
 
 
