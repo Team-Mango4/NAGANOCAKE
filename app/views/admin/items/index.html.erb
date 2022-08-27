@@ -1,0 +1,48 @@
+<div class="h3 pb-2 mb-4 text-success border-bottom border-success">
+商品一覧
+</div>
+
+ <table>
+   <thead>
+     <tr>
+       <th>商品ID</th>
+       <th>商品名</th>
+       <th>税抜価格</th>
+       <th>ジャンル</th>
+       <th>ステータス</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @items.each do |item| %>
+      <tr>
+        <td>
+         <%= item.id %>
+        </td>
+        <td>
+         <%= link_to admin_item_path(item.id) do %>
+          <%= item.name %>
+         <% end %>
+        </td>
+        <td>
+         &yen;<%= item.price %>
+        </td>
+        <td>
+         <%= item.genre.name %>
+        </td>
+        <td>
+         <% if item.is_active %>
+          <%=  "販売中" %>
+         <% else %>
+          <%= "販売停止中" %>
+
+         <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div>
+  <%= link_to "新規登録", new_admin_item_path, class: 'btn btn-success' %>
+  </div>

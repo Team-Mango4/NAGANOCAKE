@@ -1,0 +1,81 @@
+<div class="container text-center">
+  <div class="row justify-content-between">
+    <div class="col-mb-4">
+      <strong class="h4 text-secondary">ショッピングカート</strong>
+    </div>
+    <div class="col-mb-4">
+      <%= link_to public_destroy_all_path, method: :delete do %>
+        <button type="button" class="btn btn-danger">カートを空にする</button>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <!--テーブル-->
+  <table class="table table-bordered">
+    <thead class="table-success">
+      <tr>
+        <th>商品名</th>
+        <th>単価(税込み)</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @cart_items.each do |cart_item| %>
+    <tbody>
+      <tr>
+        <td><%= image_tag cart_item.item.image, size: "50x50" %><%= cart_item.item.name %></td>
+        <!--税込表示をするためのメソッド(モデルに定義したもの)-->
+        <td class = "align-middle">&yen;<%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
+         <td class = "align-middle">
+          <%= form_with model: cart_item, url: public_cart_item_path(cart_item.id), method: :patch do |f| %>
+          <%= f.select :amount, *[1..10] %>
+          <%= f.submit '変更',class:"btn btn-success"%>
+          <% end %>
+        </td>
+        <!--小計を求めるためのメソッド(モデルに定義したもの)-->
+        <td class = "align-middle">&yen;<%= cart_item.subtotal.to_s(:delimited) %></td>
+
+        <td>
+          <%= link_to  public_cart_item_path(cart_item.id), method: :delete do %>
+          <button type="button" class="btn btn-danger">削除する</button>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
+  <div class="row justify-content-between">
+    <div class="col-4">
+      <%= link_to root_path do %>
+        <button type="button" class="btn btn-primary">買い物を続ける</button>
+      <% end %>
+    </div>
+    <div class="col-4">
+      <!--小テーブル-->
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th class="table-success">合計金額</th>
+        <td colspan="2" >
+          <!--合計金額の計算-->
+          <% @cart_items.each do |cart_item| %>
+            <% @total += cart_item.subtotal %>
+          <% end %>
+          &yen;<%= @total.to_s(:delimited) %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    </div>
+  </div>
+    <div class="row align-items-end">
+    <div class="col">
+      <% if @cart_items.present? %>
+        <%= link_to new_public_order_path do %>
+         <button type="button" class="btn btn-success">情報入力に進む</button>
+        <% end %>
+      <% end %>
+    </div>
+    </div>
+</div>

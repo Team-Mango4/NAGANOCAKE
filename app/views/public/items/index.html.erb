@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+
+
+    <div class="col-md-3 pl-5">
+      <!--ジャンル検索-->
+    <%= render 'public/items/genres', genres: @genres %>
+    </div>
+
+    <div class="col-md-9 text-left">
+      <h1 class="ml-2 mb-3">
+      <% if params[:genre_id] %>
+          <%= @genre.name %>(全<%= @items.count %>)
+      <% else %>
+          商品一覧(全<%= Item.count %>)
+      <% end %>
+      </h1>
+      <table class="table d-flex flex-wrap">
+        <% @items.each do |item| %>
+        <tbody>
+            <tr>
+              <td>
+              <%= link_to public_item_path(item.id) do %>
+                <%= image_tag item.image, size: "250x150" %>
+              <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= link_to public_item_path(item.id) do %>
+                  <%= item.name %>
+                <% end %>
+              </td>
+            </tr>
+          <tr>
+            <td>&yen;<%= item.with_tax_price.to_s(:delimited) %> </td>
+          </tr>
+        </tbody>
+        <% end %>
+          </div>
+      </table>
+
+      <%= paginate @items, theme: 'twitter-bootstrap-4' %>
+
+    </div>
+
+
+  </div>
+</div>

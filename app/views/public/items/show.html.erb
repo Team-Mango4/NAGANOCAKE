@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <!--ジャンル検索-->
+    <div class="col-md-3 pl-5">
+      <%= render 'public/items/genres', genres: @genres %>
+    </div>
+
+
+    <div class="col-md-9">
+      <div class="row pr-5">
+        <div class="col-md-4">
+          <%= image_tag @item.image, size: "356x220" %>
+        </div>
+
+        <div class="col-md-7 ml-4 pr-3 d-flex flex-wrap">
+          <ul>
+            <li　class="list-unstyled"><h1><%= @item.name %></h1></li>
+            <li　class="list-unstyled"><h2><%= @item.introduction %></h2></li>
+            <br>
+            <br>
+            <br>
+            <li　class="list-unstyled"><h3>&yen;<%= @item.with_tax_price.to_s(:delimited) %><small class="text-muted">(税込)</small></h3></li>
+          </ul>
+        </div>
+      </div>
+
+        <!--個数選択-->
+        <%= form_with model: @cart_item, url: '/public/cart_items', method: :post do |f| %>
+        <div class="row d-flex">
+          <%= f.hidden_field :item_id, :value => @item.id %>
+          <div class="col-md-1 offset-md-8">
+            <%= f.select :amount, *[1..10] %>
+          </div>
+          <div class="col-md-3">
+            <%= f.submit 'カートに入れる', class:'btn btn-success' %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+
+  </div>
+</div>
