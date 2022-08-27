@@ -7,10 +7,13 @@
     <%= render 'public/items/genres', genres: @genres %>
     </div>
 
-
     <div class="col-md-9 text-left">
       <h1 class="ml-2 mb-3">
-        商品一覧(全<%= Item.count %>)
+      <% if params[:genre_id] %>
+          <%= @genre.name %>(全<%= @items.count %>)
+      <% else %>
+          商品一覧(全<%= Item.count %>)
+      <% end %>
       </h1>
       <table class="table d-flex flex-wrap">
         <% @items.each do |item| %>
@@ -24,7 +27,7 @@
             </tr>
             <tr>
               <td>
-                <%= link_to public_item_path(item.id) do %>
+                <%= link_to public_item_path(item.id),class:"text-secondary" do %>
                   <%= item.name %>
                 <% end %>
               </td>
