@@ -1,0 +1,47 @@
+  <div class="container-fluid">
+    <div class="row">
+
+    <div class="col-md-10 offset-md-2">
+
+      <!--検索結果文-->
+      <h1 class="ml-3 mb-3">
+      検索ワード：「<%= @search_word %>」
+      </h1>
+      <% unless @items.count == 0 %>
+        <p style="font-size: 20px; font-weight: bold;"><%= @items.count %>品 ございます！ </p>
+      <% else %>
+         <p style="font-size: 20px; font-weight: bold;">申し訳ございません。見つけることが出来ませんでした。</p>
+      <% end %>
+
+      <!--検索結果表示-->
+      <table class="table d-flex flex-wrap">
+        <% @items.each do |item| %>
+        <tbody>
+            <tr>
+              <td>
+              <%= link_to public_item_path(item.id) do %>
+                <%= image_tag item.image, size: "323x200" %>
+              <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size: 20px;">
+                <%= link_to public_item_path(item.id) do %>
+                  <%= item.name %>
+                <% end %>
+              </td>
+            </tr>
+          <tr>
+            <td style="font-size: 18px;">&yen;<%= item.with_tax_price.to_s(:delimited) %> </td>
+          </tr>
+        </tbody>
+        <% end %>
+          </div>
+      </table>
+
+      <%= paginate @items, theme: 'twitter-bootstrap-4' %>
+
+    </div>
+
+  </div>
+</div>

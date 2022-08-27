@@ -25,11 +25,12 @@
           </li>
           <li>
             <!--検索窓の姿のみ表示-->
-            <div class="input-group">
-              <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワードを入力"></input>
-              <span class="input-group-btn input-group-append">
-                <submit type="submit" id="btn-search" class="btn btn-warning"><i class="fas fa-search"></i> 検索</submit>
-              </span>
+            <div class="find_form">
+              <%= form_with url: public_finder_path, local: true, method: :get do |f| %>
+                <%= f.text_field :word %>
+                <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"], ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
+                <%= f.submit "検索", class: "btn btn-primary" %>
+              <% end %>
             </div>
 
           </li>
