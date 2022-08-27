@@ -1,18 +1,18 @@
-<div class="h3 pb-2 mb-4 text-success border-bottom border-success">
-  <h1>ログインページ</h1>
+<div class="h3 pb-2 mb-4 text-warning border-bottom border-warning">
+  ログインページ
 </div>
 <div class='container'>
   <div class='row g-3'>
     <div class='col-md-6 offset-md-3'>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
-        <%= f.label :email,"メールアドレス",class: "h5 text-success" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control border-success' %>
+        <%= f.label :email,"メールアドレス",class: "h5 text-warning" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control border-warning' %>
       </div>
 
       <div class="field">
-        <%= f.label :password,"パスワード",class: "h5 text-success" %>
-        <%= f.password_field :password, autocomplete: "current-password" ,class: 'form-control border-success'%>
+        <%= f.label :password,"パスワード",class: "h5 text-warning" %>
+        <%= f.password_field :password, autocomplete: "current-password" ,class: 'form-control border-warning'%>
       </div>
 
       <% if devise_mapping.rememberable? %>
@@ -23,11 +23,12 @@
       <% end %>
 
       <div class="text-right">
-        <button type="submit" class="btn btn-success rounded-pill">ログイン</button>
+        <button type="submit" class="btn btn-warning">ログイン</button>
       </div>
     <% end %>
+  <strong>まだ会員登録お済みでない方は</strong>　<%= link_to "こちら",  new_customer_registration_path %>
 
-    <%= render "public/shared/links" %>
+
 
     </div>
   </div>
