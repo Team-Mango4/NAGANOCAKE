@@ -12,16 +12,24 @@
         <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
           <li>
-            <%= link_to "マイページ", public_customer_path(current_customer), class: 'nav-link text-dirk' %>
+            <%= link_to public_customer_path(current_customer), class: 'nav-link text-light' do %>
+              <p><i class="fas fa-home"></i> マイページ</p>
+            <% end %>
           </li>
           <li>
-            <%= link_to '商品一覧', public_items_path, class: 'nav-link text-dirk' %>
+            <%= link_to public_items_path, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-store"></i> 商品一覧</p>
+            <% end %>
           </li>
           <li>
-            <%= link_to "カート", public_cart_items_path, class: 'nav-link text-dirk' %>
+            <%= link_to public_cart_items_path, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-shopping-cart"></i> カート</p>
+            <% end %>
           </li>
-          <li>
-            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dirk' %>
+          <li class="nav-item">
+            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-sign-out-alt"></i> ログアウト</p>
+            <% end %>
           </li>
           <li>
             <!--検索窓の姿のみ表示-->
@@ -54,19 +62,29 @@
 
         <% else %>
           <li>
-            <%= link_to "About", about_path, class: 'nav-link text-dirk' %>
+            <%= link_to about_path, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-link"></i> アバウト</p>
+            <% end %>
           </li>
           <li>
-            <%= link_to '商品一覧', public_items_path, class: 'nav-link text-dirk' %>
+            <%= link_to public_items_path, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-store"></i> 商品一覧</p>
+            <% end %>
           </li>
           <li>
-            <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dirk'%>
+            <%= link_to new_customer_registration_path, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-user-plus"></i> 新規登録</p>
+            <% end %>
           </li>
           <li>
-            <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dirk' %>
+            <%= link_to new_customer_session_path, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-sign-in-alt"></i> ログイン</p>
+            <% end %>
           </li>
           <li>
-            <%= link_to "管理者ログイン", new_admin_session_path, class: 'nav-link text-dirk' %>
+            <%= link_to new_admin_session_path, class: 'nav-link text-light' do %>
+              <p><i class="fas fa-lock"></i> 管理者ログイン</p>
+            <% end %>
           </li>
 
 

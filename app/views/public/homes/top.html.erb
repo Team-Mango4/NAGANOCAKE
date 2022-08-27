@@ -25,7 +25,7 @@
       <div class="row">
         <div class="col-md-12 d-flex">
           <% @items.first(4).each do |item| %>
-            <%= link_to "/public/items/#{item.id}" do %>
+            <%= link_to "/public/items/#{item.id}",class:"text-secondary" do %>
               <div class="card mx-2" style="width: 250px; height:150;">
                 <%= image_tag item.image, class:"card-img-top"%>
                 <div class="card-body text-center">
@@ -40,7 +40,9 @@
 
       <div class="row">
         <div class="col-md-2 offset-md-10 mt-3">
-          <%= link_to "全ての商品を見る＞", "/public/items"%>
+          <%= link_to "/public/items",class:"text-secondary" do %>
+            <p>全ての商品を見る＞</p> 
+          <% end %>
         </div>
       </div>
 
