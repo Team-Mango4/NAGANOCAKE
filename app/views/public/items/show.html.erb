@@ -16,7 +16,7 @@
         <div class="col-md-7 ml-4 pr-3 d-flex flex-wrap">
           <h1><%= @item.name %></h1>
           <h2><%= @item.introduction %></h2>
-          &yen;<%= @item.with_tax_price %><small class="text-muted">(税込)</small>
+          &yen;<%= @item.with_tax_price.to_s(:delimited) %><small class="text-muted">(税込)</small>
         </div>
       </div>
 

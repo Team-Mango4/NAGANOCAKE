@@ -34,7 +34,7 @@
               <% end %>
               </table>
             </td>
-            <td class="align-middle">&yen;<%= order.total_payment %></td>
+            <td class="align-middle">&yen;<%= order.total_payment.to_s(:delimited) %></td>
             <td class="align-middle"><%= order.status_i18n %></td>
             <td class="align-middle"><%= link_to "表示する", "/public/orders/#{order.id}", class: "btn btn-sm btn-primary" %></td>
           </tr>
