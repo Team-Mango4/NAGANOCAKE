@@ -6,6 +6,8 @@ class Public::HomesController < ApplicationController
 
   def about
     @items = Item.all
+    
+    @item = Item.last(1)
   end
 
 end
