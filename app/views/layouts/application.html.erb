@@ -12,13 +12,12 @@
   <body>
     <%= render 'layouts/header' %>
     <!--アラート-->
-      <!--<div class="alert alert-primary">-->
-        <%= notice %>
-      <!--</div>-->
-      <!--<div class="alert alert-danger">-->
-        <%= alert %>
-      <!--</div>-->
-    
+    <% if flash[:notice ] %>
+      <div class="alert alert-primary"><%= notice %></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger"><%= alert %></div>
+    <% end %>
       <main>
         <%= yield %>
       </main>
