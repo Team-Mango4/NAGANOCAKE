@@ -1,20 +1,23 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <!--ジャンル一覧-->
-    <div class="col-md-3 pl-5">
+    <div class="col-md-3">
       <%= render 'public/items/genres', genres: @genres %>
     </div>
 
-    <div class="col-md-9">
-      <div class="row">
-        <div class="col-md-10 offset-md-2 my-5" style="font-size: 22px; font-weight: bold;">
-            <p>ようこそ、ながのCAKEへ！<br>
+    <div class ="col-md-9">
+        <div class="card">
+        <img src="assets/topcake.jpg", class="card-img">
+          <div class="card-img-overlay">
+            <p class = "text-dark", style = "font-size: 18px;">
+            <strong >ようこそ、ながのCAKEへ</strong><br>
             このサイトは、ケーキ販売のECサイトになります。</br>
             会員でない方も商品の閲覧はできますが、</br>
-            購入には会員登録が必要になります。
-          </p>
+            購入には会員登録が必要になります。</p>
+          </div>
         </div>
       </div>
+    </div>
 
       <div class="row">
         <div class="col-md-12">
@@ -39,14 +42,11 @@
       </div>
 
       <div class="row">
-        <div class="col-md-2 offset-md-10 mt-3">
+        <div class="col-md-12 mt-3 text-right">
           <%= link_to "全ての商品を見る＞", "/public/items"%>
         </div>
       </div>
 
-    </div>
-
-  </div>
 </div>
 
 
