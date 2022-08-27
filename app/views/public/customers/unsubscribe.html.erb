@@ -1,8 +1,11 @@
 <div class="row">
     <div class="col-md-12 text-center py-5">
-
-        <strong>本当に退会しますか？</strong>
-
+       <h3><strong>本当に退会しますか？</strong></h3>
+       <div class="mt-3">
+        <h5><p>退会すると、会員登録情報やこれまでの<br>
+        　購入履歴が見れなくなります。<br>
+        　退会する場合は<strong>"退会する"</strong>を押してください。</p></h5>
+        　</div>
 
   <%=  link_to "退会する", public_withdraw_path, method: :patch , class: "btn btn-danger" %>
    <%= link_to "退会しない", root_path , class: "btn btn-primary" %>

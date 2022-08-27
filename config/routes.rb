@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+  get 'finders/finder'
   # 顧客用
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",

@@ -1,4 +1,4 @@
-<div class="h3 pb-2 mb-4 text-success border-bottom border-success">
+<div class="h3 pb-2 mb-4 text-warning border-bottom border-warning">
     配送先登録/一覧
 </div>
 <div class='container'>
@@ -7,23 +7,23 @@
     <%= form_with model: @ship, url: public_ships_path, method: :post do |f| %>
      <div class="col-md-6">
      <strong>郵便番号(ハイフンなし)</strong>
-      <%= f.text_field :post_code, class: 'form-control border-success' %>
+      <%= f.text_field :post_code, class: 'form-control border-warning' %>
       </div>
        <div class="col-md-12">
         <strong>住所</strong>
-          <%= f.text_field :address, class: 'form-control border-success' %>
+          <%= f.text_field :address, class: 'form-control border-warning' %>
           </div>
          <div class="col-md-6">
            <strong>宛名</strong>
-         <%= f.text_field :name, class: 'form-control border-success' %>
+         <%= f.text_field :name, class: 'form-control border-warning' %>
         </div>
         <div class="d-md-flex justify-content-md-end mb-3 ">
-        <%= f.submit "新規登録" ,class: "btn  btn-success" %>
+        <%= f.submit "新規登録" ,class: "btn  btn-warning" %>
        </div>
        <% end %>
  <table class="table table-bordered">
 
-  <tr class="table-success">
+  <tr class="table-warning">
    <th>郵便番号</th>
    <th>住所</th>
    <th>宛名</th>
