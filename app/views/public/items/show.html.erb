@@ -7,16 +7,20 @@
 
 
     <div class="col-md-9">
-
       <div class="row pr-5">
         <div class="col-md-4">
           <%= image_tag @item.image, size: "356x220" %>
         </div>
 
         <div class="col-md-7 ml-4 pr-3 d-flex flex-wrap">
-          <h1><%= @item.name %></h1>
-          <h2><%= @item.introduction %></h2>
-          &yen;<%= @item.with_tax_price.to_s(:delimited) %><small class="text-muted">(税込)</small>
+          <ul>
+            <li　class="list-unstyled"><h1><%= @item.name %></h1></li>
+            <li　class="list-unstyled"><h2><%= @item.introduction %></h2></li>
+            <br>
+            <br>
+            <br>
+            <li　class="list-unstyled"><h3>&yen;<%= @item.with_tax_price.to_s(:delimited) %><small class="text-muted">(税込)</small></h3></li>
+          </ul>
         </div>
       </div>
 
