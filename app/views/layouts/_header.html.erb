@@ -12,16 +12,24 @@
         <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
           <li>
-            <%= link_to "マイページ", public_customer_path(current_customer), class: 'nav-link text-white' %>
+            <%= link_to  public_customer_path(current_customer), class: 'nav-link text-white' do %>
+             <i class="fas fa-home"></i>マイページ
+             <% end %>
           </li>
           <li>
-            <%= link_to '商品一覧', public_items_path, class: 'nav-link text-white' %>
+            <%= link_to public_items_path, class: 'nav-link text-white' do %>
+            	<i class="fas fa-birthday-cake"></i>商品一覧
+            <% end %>
           </li>
           <li>
-            <%= link_to "カート", public_cart_items_path, class: 'nav-link text-white' %>
+            <%= link_to public_cart_items_path, class: 'nav-link text-white' do %>
+            <i class="fas fa-shopping-cart"></i>カート
+            <% end %>
           </li>
           <li>
-            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-white' %>
+            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-white' do %>
+             <i class="fas fa-sign-out-alt"></i>ログアウト
+             <% end %>
           </li>
           <li>
             <!--検索窓の姿のみ表示-->
