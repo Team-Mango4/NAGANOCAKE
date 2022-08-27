@@ -10,12 +10,11 @@
     <div class="col-md-9 text-left">
       <h1 class="ml-2 mb-3">
       <% if params[:genre_id] %>
-          <%= @genre.name %>(全<%= @items.count %>
+          <%= @genre.name %>(全<%= @items.count %>)
       <% else %>
           商品一覧(全<%= Item.count %>)
       <% end %>
-      <div classo="col-md-8 offset-md-1">
-
+      </h1>
       <table class="table d-flex flex-wrap">
         <% @items.each do |item| %>
         <tbody>
